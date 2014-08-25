@@ -1,45 +1,80 @@
 <div class="wrapper">
-  <div class="grid">
-    <div class="grid-item large--three-quarters">
-      <ul class="main-nav__items">
+  <div class="navigation">
+    <ul class="main-nav__items-left medium-down--hide">
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="{{ localized_root_path }}">{{ "Accueil" | t }}</a>
+      </li>
+      {% for menu in menus %}
         <li class="main-nav__item">
-          <a class="main-nav__link" href="{{ localized_root_path }}">{{ "Accueil" | t }}</a>
+          <a class="main-nav__link" href="{{ menu.url }}">{{ menu.name }}</a>
         </li>
-        {% for menu in menus %}
-          <li class="main-nav__item">
-            <a class="main-nav__link" href="{{ menu.url }}">{{ menu.name }}</a>
+      {% endfor %}
+    </ul>
+    <div class="logo">
+      {% if restaurant.logo? %}
+        <a class="logo__link" href="{{ localized_root_path }}">
+          {{ restaurant.logo_url | image_tag:'class:logo__image' }}
+        </a>
+      {% else %}
+        <a class="logo__link" href="{{ localized_root_path }}">
+          {{ reaturant.name }}
+        </a>
+      {% endif %}
+    </div>
+    <ul class="main-nav__items-right medium-down--hide">
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="{{ restaurant.url }}">{{ "Le restaurant" | t }}</a>
+      </li>
+      <li class="main-nav__item">
+        {{ "Newsletter" | newsletter_subscribe_url:'class:main-nav__link' }}
+      </li>
+      {% if theme_settings.display_contact_form %}
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="{{ restaurant.contact_path }}">
+            {% if contact_settings.navigation_label? %}
+              {{ contact_settings.navigation_label }}
+            {% else %}
+              {{ contact_settings.contact_title }}
+            {% endif %}
+          </a>
+        </li>
+      {% endif %}
+      {% if localized_page_paths.size > 0 %}
+        {% for path in localized_page_paths %}
+          <li class="main-nav__language">
+            <a class="main-nav__link" href="{{ path.url }}">{{ path.locale_name }}</a>
           </li>
         {% endfor %}
-        <li class="main-nav__item">
-          <a class="main-nav__link" href="{{ restaurant.url }}">{{ "Le restaurant" | t }}</a>
-        </li>
-        <li class="main-nav__item">
-          {{ "Newsletter" | newsletter_subscribe_url:'class:main-nav__link' }}
-        </li>
+      {% endif %}
+    </ul>
+
+    <div class="large--hide">
+      <select name="navigation" id="navigation-mobile">
+        <option value="Accueil"><a class="main-nav__link" href="{{ localized_root_path }}">{{ "Accueil" | t }}</a></option>
+        {% for menu in menus %}
+          <option value="{{ menu.name }}"><a href="{{ menu.url }}">{{ menu.name }}</a></option>
+        {% endfor %}
+        <option value="Restaurant"><a href="{{ restaurant.url }}">{{ "Le restaurant" | t }}</a></option>
+        <option value="Newsletter">{{ "Newsletter" | newsletter_subscribe_url }}</option>
         {% if theme_settings.display_contact_form %}
-          <li class="main-nav__item">
-            <a class="main-nav__link" href="{{ restaurant.contact_path }}">
+          <option value="Contact">
+            <a href="{{ restaurant.contact_path }}">
               {% if contact_settings.navigation_label? %}
                 {{ contact_settings.navigation_label }}
               {% else %}
                 {{ contact_settings.contact_title }}
               {% endif %}
             </a>
-          </li>
+          </option>
         {% endif %}
-      </ul>
-    </div>
-
-    <div class="grid-item large--one-quarter">
-      {% if localized_page_paths.size > 0 %}
-        <ul class="main-nav__languages">
+        {% if localized_page_paths.size > 0 %}
           {% for path in localized_page_paths %}
-            <li class="main-nav__language">
-              <a class="main-nav__link" href="{{ path.url }}">{{ path.locale_name }}</a>
-            </li>
+            <option value="Langues">
+              <a href="{{ path.url }}">{{ path.locale_name }}</a>
+            </option>
           {% endfor %}
-        </ul>
-      {% endif %}
+        {% endif %}
+      </select>
     </div>
   </div>
 </div>

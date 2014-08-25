@@ -129,8 +129,8 @@ $gallery-caption-color: {{ theme_settings.gallery-caption-color }};
 $viewportIncrement: 1px;
 
 $small: 480px;
-$medium: 768px;
-$large: 769px;
+$medium: 1023px;
+$large: 1024px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -966,12 +966,18 @@ a {
 .main-header {
 }
   .logo {
-    width: 150px;
-    margin: 1em auto;
+    margin: 1em 1em;
+    display: inline-block;
+    vertical-align: middle;
   }
     .logo__link {
-      display: block;
       text-decoration: none;
+      display: block;
+      img {
+        width: 150px;
+        margin: 0 auto;
+        display: block;
+      }
     }
       .logo__image {
         @extend .auto;
@@ -1005,44 +1011,17 @@ a {
     }
       .phone-number__label {
       }
-
 .main-nav {
   @include clearfix();
-  background-color: $main-nav-background;
+  background-color: $body-background;
 }
-  .main-nav__items {
-    margin: 0;
-    text-align: center;
-  }
-    .main-nav__item {
-      //display: inline-block;
-      margin: 0;
-      font-size: 1.25rem;
-    }
-      .main-nav__link {
-        @include transition(background-color .25s);
-        background-color: $main-nav-link-background;
-        color: $main-nav-link-color;
-        display: inline-block;
-        font-size: 1em;
-        text-decoration: none;
-        padding: .5em;
-        &:hover,
-        &:focus {
-          background-color: $main-nav-link-hover-background;
-          color: $main-nav-link-hover-color;
-        }
-      }
-  .main-nav__languages {
-    margin: 0;
-    text-align: center;
-  }
-    .main-nav__language {
-      //display: inline-block;
-      margin: 0;
-      font-size: 1.25rem;
-    }
-
+#navigation-mobile {
+  width: 200px;
+  margin: 1rem auto;
+}
+.navigation {
+  text-align: center;
+}
 .main-content {
   margin-bottom: 1em;
 }
@@ -1810,18 +1789,33 @@ x:-o-prefocus, .lb-overlay img {
     font-size: 125%;
   }
 
-  .phone-number {
-    margin: 1.45em 0;
-    text-align: right;
-  }
-  .main-nav__items {
+  .main-nav__items-left {
     margin: 0;
-    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .main-nav__items-right {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
   }
     .main-nav__item {
       display: inline-block;
       font-size: 1rem;
     }
+      .main-nav__link {
+        @include transition(border .25s);
+        color: $main-nav-link-color;
+        display: inline-block;
+        font-size: 1em;
+        text-decoration: none;
+        padding: .5em;
+        font-weight: 700;
+        border-bottom: 4px solid white;
+        &:hover {
+          border-bottom: 4px solid #ffa42e;
+        }
+      }
 
   .main-nav__languages {
     text-align: center;
