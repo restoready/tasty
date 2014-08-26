@@ -10,6 +10,7 @@
     {{ restaurant.host | url_canonical | canonical_tag }}
 
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery.bxslider.css' | asset_url | stylesheet_tag }}
     {% if theme_settings.google-fonts-link %}
       {{ theme_settings.google-fonts-link | replace:'http:','https:' }}
     {% endif %}
@@ -30,5 +31,12 @@
         {% include 'footer' %}
       </footer>
     </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    {{ 'jquery.bxslider.min.js' | asset_url | javascript_tag }}
+    <script>
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+    </script>
   </body>
 </html>
