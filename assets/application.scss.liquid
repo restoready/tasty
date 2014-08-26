@@ -1189,34 +1189,60 @@ label {
   }
 
 // Home
-.restaurant-main-image {
-  {% if restaurant.main_image?%}
-    background-image: url({{ restaurant.main_image | custom_image_url: '1920x480#' }});
-  {% endif %}
-  background-color: rgba(0,0,0, .5);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.restaurant-summary {
-  color: $restaurant-summary-color;
-  padding-top: 4em;
-  padding-bottom: 3em;
-  text-align: center;
-  p {
-    font-size: 1.2em;
-  }
-}
+
+// .restaurant-main-image {
+//   {% if restaurant.main_image?%}
+//     background-image: url({{ restaurant.main_image | custom_image_url: '1920x480#' }});
+//   {% endif %}
+//   background-color: rgba(0,0,0, .5);
+//   background-size: cover;
+//   background-position: center center;
+//   background-repeat: no-repeat;
+// }
+// .restaurant-summary {
+//   color: $restaurant-summary-color;
+//   padding-top: 4em;
+//   padding-bottom: 3em;
+//   text-align: center;
+//   p {
+//     font-size: 1.2em;
+//   }
+// }
 .menus--featured {
   background-color: $featured-menus-background;
   margin-bottom: 1em;
   padding: 1em 0;
-  .section__title {
-    color: $featured-menus-title-color;
-    border-bottom: 1px solid $featured-menus-border-color;
-    margin-bottom: .75em;
-  }
+  // .section__title {
+  //   color: $featured-menus-title-color;
+  //   border-bottom: 1px solid $featured-menus-border-color;
+  //   margin-bottom: .75em;
+  // }
 }
+  .menus__item--home {
+    text-align: center;
+  }
+  .menu__title--home {
+    font-family: "Great Vibes";
+    font-size: 44px !important;
+    text-transform: none !important;
+  }
+  .post-thumbnail img {
+    border-radius: 50%;
+  }
+  .menu__description--home {
+    color: #333;
+    font-size: 14px;
+  }
+  .link-view-menu {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    @include transition(color .25s);
+    &:hover {
+      color: #ffa42e;
+    }
+  }
   .menus__menu-link {
     color: $menu-link-color;
     &:hover, &:focus {

@@ -6,54 +6,64 @@
   </ul>
 {% endif %}
 
-{% if home_menus.size > 0 %}
-  <section class="menus menus--featured">
-    <div class="wrapper">
-      <header class="section__header">
-        <h2 class="section__title">{{ "Cette semaine" | t }}</h2>
-      </header>
-      <main class="section__main">
-        {% for menu in home_menus %}
-          <h3 class="menu__title">{{ menu.name }}</h3>
-          {% if menu.summary? %}
-            <div class="menu__description">
-              <p>{{ menu.summary }}</p>
-            </div>
+<div class="grid">
+  {% if home_menus.size > 0 %}
+    {% for menu in home_menus %}
+      <div class="grid-item medium--one-half large--one-third menus__item--home">
+        <h1 class="menu__title--home">
+          {% if menu.parent? %}
+            <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}">{{ menu.name }}</a>
+          {% else %}
+            <a href="{{ menu.url }}">{{ menu.name }}</a>
           {% endif %}
-          {% for food in menu.foods %}
-            {% assign_prices_to prices for food in menu %}
-            {% include 'food' with food:food %}
-          {% endfor %}
-        {% endfor %}
-      </main>
-      <footer class="section__footer">
-        <a class="button featured__link" href="{{ restaurant.menus_path }}">
-          {{ "Voir toute la carte" | t }}
-        </a>
-      </footer>
-    </div>
-  </section>
-{% endif %}
+        </h1>
+        <div class="post-thumbnail">
+          {% if menu.parent? %}
+            <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="post-find-more">
+          {% else %}
+            <a href="{{ menu.url }}" class="post-find-more">
+          {% endif %}
+          <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+          </a>
+          <img src="{{ menu.main_image | custom_image_url: "295x295#" }}" alt="menu">
+        </div>
+        {% if menu.summary? %}
+          <div class="menu__description--home">
+            <p>{{ menu.summary }}</p>
+          </div>
+        {% endif %}
+        {% if menu.parent? %}
+          <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="link-view-menu">{{ "Voir le menu" | t }}</a>
+        {% else %}
+          <a href="{{ menu.url }}" class="link-view-menu">{{ "Voir le menu" | t }}</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% endif %}
 
-{% if home_foods.size > 0 %}
-  <section class="foods foods--featured">
-    <div class="wrapper">
-      <header class="section__header">
-        <h2 class="section__title">{{ "Nos suggestions" | t }}</h2>
-      </header>
-      <main class="section__main">
-        {% for food in home_foods %}
-          {% include 'food' with food:food %}
-        {% endfor %}
-      </main>
-      <footer class="section__footer">
-        <a class="button featured__link" href="{{ restaurant.menus_path }}">
-          {{ "Voir toute la carte" | t }}
-        </a>
-      </footer>
-    </div>
-  </section>
-{% endif %}
+  {% if home_foods.size > 0 %}
+    {% for food in home_foods %}
+      <div class="grid-item medium--one-half large--one-third menus__item--home">
+        {% assign assotiated_menu = food.menu %}
+        <h1 class="menu__title--home">
+          <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}">{{ food.name }}</a>
+        </h1>
+        <div class="post-thumbnail">
+          <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="post-find-more">
+          <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+          </a>
+          <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
+        </div>
+        {% if food.summary? %}
+          <div class="menu__description--home">
+            <p>{{ food.summary }}</p>
+          </div>
+        {% endif %}
+        <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="link-view-menu">{{ "Voir le plat" | t }}</a>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
 
 <div class="wrapper">
   <div class="grid">
