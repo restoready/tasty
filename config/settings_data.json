@@ -87,7 +87,8 @@
     "display_google_business_view_embed": false,
     "google_map_type": "image",
     "footer_display_newsletter": true,
-    "display_contact_form": true
+    "display_contact_form": true,
+    "home-display-about-background": true
   },
   "presets":{
     "Original":{
@@ -178,7 +179,8 @@
       "display_google_business_view_embed": false,
       "google_map_type": "image",
       "footer_display_newsletter": true,
-      "display_contact_form": true
+      "display_contact_form": true,
+      "home-display-about-background": true
     }
   }
 }

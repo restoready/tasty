@@ -1,15 +1,30 @@
-{% if slides.size > 0 %}
-  <ul class="bxslider">
-    {% for slide in slides %}
-      <li><img src="{{ slide.image | custom_image_url: '1920x640#' }}"/></li>
-    {% endfor %}
-  </ul>
-{% endif %}
+<section class="slider">
+  {% if slides.size > 0 %}
+    <ul class="bxslider">
+      {% for slide in slides %}
+        <li>
+          <img src="{{ slide.image | custom_image_url: '1920x640#' }}"/>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="slider__text">
+    <div>
+      <h1 class="slider-title">{{ restaurant.name }}</h1>
+      <h5 class="slider-subtitle">{{ restaurant.slogan }}</h5>
+    </div>
+    <div>
+      <a href="#nav-main" class="button button-orange">
+        <span>{{ "Découvrez notre restaurant" | t }}</span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <div class="grid">
   {% if home_menus.size > 0 %}
     {% for menu in home_menus %}
-      <div class="grid-item medium--one-half large--one-third menus__item--home">
+      <div class="grid-item large--one-third menus__item--home">
         <h1 class="menu__title--home">
           {% if menu.parent? %}
             <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}">{{ menu.name }}</a>
@@ -18,14 +33,18 @@
           {% endif %}
         </h1>
         <div class="post-thumbnail">
-          {% if menu.parent? %}
-            <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="post-find-more">
-          {% else %}
-            <a href="{{ menu.url }}" class="post-find-more">
-          {% endif %}
-          <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
-          </a>
-          <img src="{{ menu.main_image | custom_image_url: "295x295#" }}" alt="menu">
+          <div class="post-thumbnail-wrapper">
+            <img src="{{ menu.main_image | custom_image_url: "295x295#" }}" alt="menu">
+            <div class="menu__link-home">
+              {% if menu.parent? %}
+                <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="post-find-more">
+              {% else %}
+                <a href="{{ menu.url }}" class="post-find-more">
+              {% endif %}
+              <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+              </a>
+            </div>
+          </div>
         </div>
         {% if menu.summary? %}
           <div class="menu__description--home">
@@ -43,16 +62,20 @@
 
   {% if home_foods.size > 0 %}
     {% for food in home_foods %}
-      <div class="grid-item medium--one-half large--one-third menus__item--home">
+      <div class="grid-item large--one-third menus__item--home">
         {% assign assotiated_menu = food.menu %}
         <h1 class="menu__title--home">
           <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}">{{ food.name }}</a>
         </h1>
         <div class="post-thumbnail">
-          <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="post-find-more">
-          <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
-          </a>
-          <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
+          <div class="post-thumbnail-wrapper">
+            <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
+            <div class="menu__link-home">
+              <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="post-find-more">
+              <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+              </a>
+            </div>
+          </div>
         </div>
         {% if food.summary? %}
           <div class="menu__description--home">
@@ -63,71 +86,104 @@
       </div>
     {% endfor %}
   {% endif %}
+  <div class="clearer"></div>
+  <a href="{{ restaurant.menus_path }}" class="button button-orange" id="btn-center">
+    <span>{{ "Voir toute la carte" | t }}</span>
+  </a>
 </div>
+
+<section class="parallax-section">
+  <div class="wrapper">
+    <div class="grid">
+      <h3 class="title-before">{{ "À propos" | t }}</h3>
+      {% if restaurant.slogan? %}
+        <h1 class="title">{{ restaurant.slogan }}</h1>
+      {% endif %}  
+      {% if restaurant.summary? %}
+        <div class="text">{{ restaurant.summary }}<br>
+          <a href="{{ restaurant.url }}" class="button button-orange" target="_self">
+            <span>{{ "En savoir +" | t }}</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
 
 <div class="wrapper">
   <div class="grid">
-    <div class="grid-item large--one-half">
-      <section class="opening-hours">
-        <header class="section__header">
-          <h2 class="section__title">{{ "Horaires" | t }}</h2>
-        </header>
-        <main class="section__main">
-          <dl class="opening-days">
+    <section class="opening-hours">
+      <header class="section__header">
+        <h2 class="section__title">{{ "Horaires" | t }}</h2>
+      </header>
+      <main>
+        <dl>
           {% for day in opening_hours %}
-            <dt class="opening-day">
+            <dt>
               {{ day.name }}
             </dt>
-            <dd class="opening-shifts">
+            <dd>
               {{ day.shifts }}
             </dd>
           {% endfor %}
-          </dl>
+        </dl>
         {% if restaurant.opening_hours_information? %}
-          <div class="opening-hours__information">
+          <div>
             <p>{{ restaurant.opening_hours_information }}</p>
           </div>
         {% endif %}
-        </main>
-      </section>
-    </div>
+      </main>
+    </section>
 
-    <div class="grid-item large--one-half">
-      <section class="directions">
-        <header class="section__header">
-          <h2 class="section__title">{{ "Localisation" | t }}</h2>
-        </header>
-        <main class="section__main">
+    <section class="directions">
+      <main class="section__main">
+        <div class="map contact_map">
           {% if theme_settings.google_map_type != "" %}
-            <div class="map">
+            <div>
               {% if theme_settings.google_map_type == "embed" %}
-                {% google_map_embed: "size:100%x320" %}
+                {% google_map_embed: "size:100%x520" %}
               {% elsif theme_settings.google_map_type == "image" %}
-                <a class="map__link" href="{% google_map_url %}">
-                  <img class="map__image" src="{% google_map_image_url: "size:640x320" %}" />
+                <a href="{% google_map_url %}">
+                  <img src="{% google_map_image_url: "size:640x320" %}" />
                 </a>
               {% endif %}
             </div>
           {% endif %}
+        </div>
+        <div class="wrapp-see-location">
+          <header class="section__header">
+            <h2>{{ "Localisation" | t }}</h2>
+          </header>
+          <h1 class="section__title">{{ restaurant.name }}</h1>
           {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-          <div class="address">
-            <p>
-              {% if restaurant.street_address? %}
-                {{ restaurant.street_address }}
-                <br />
+            <div class="address">
+              {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+                <div>
+                  <p>
+                    {% if restaurant.street_address? %}
+                      {{ restaurant.street_address }}
+                      <br />
+                    {% endif %}
+                    {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
+                    {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
+                  </p>
+                </div>
               {% endif %}
-              {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
-              {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
-            </p>
-          </div>
+            </div>
           {% endif %}
-        </main>
-        <footer class="section__footer">
-            <a class="button directions__link" href="{% google_map_url %}">
-              {{ "Voir l'itinéraire" | t }}
+          <footer class="section__footer">
+            <a class="button button-black btn-see-location" href="{% google_map_url %}">
+            {{ "Voir l'itinéraire" | t }}
             </a>
-        </footer>
-      </section>
-    </div>
+          </footer>
+        </div>
+      </main>
+      <script>
+        jQuery(".btn-see-location").click(function (e) {
+          e.preventDefault();
+          jQuery(this).parents(".wrapp-see-location").fadeOut("slow");
+        });
+      </script>
+    </section>
   </div>
 </div>

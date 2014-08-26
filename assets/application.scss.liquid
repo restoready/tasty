@@ -912,18 +912,19 @@ form.form-horizontal,
 // ==============================================================================
 .button {
   @include transition(background-color .25s);
-  background-color: $button-background;
   border: 0;
   color: $button-color;
   cursor: pointer;
-  display: inline-block;
-  margin: 0;
   padding: .5em 2em;
-  text-align: center;
   text-decoration: none;
   vertical-align: middle;
   white-space: nowrap;
   -webkit-appearance: none;
+  text-align: center;
+  margin: 2rem auto;
+  display: block;
+  width: 350px;
+  font-weight: 700;
 
   &.button--small {
     font-size: 0.75em;
@@ -946,6 +947,26 @@ form.form-horizontal,
     cursor: default;
   }
 }
+.button-orange {
+    color: #ffa42e;
+    background-color: none;
+    border: 2px solid #ffa42e;
+    @include transition(background-color color .25s);
+    &:hover {
+      background-color: #ffa42e;
+      color: #fff;
+    }
+}
+.button-black {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    @include transition(background-color color .25s);
+    &:hover {
+      background-color: none;
+      color: black;
+    }
+}
 
 
 // ==============================================================================
@@ -958,6 +979,9 @@ body {
 a {
   text-decoration: none;
   color: $body-color;
+}
+.clearer {
+  clear: both;
 }
 .page {
   @extend .clearfix;
@@ -1190,44 +1214,71 @@ label {
 
 // Home
 
-// .restaurant-main-image {
-//   {% if restaurant.main_image?%}
-//     background-image: url({{ restaurant.main_image | custom_image_url: '1920x480#' }});
-//   {% endif %}
-//   background-color: rgba(0,0,0, .5);
-//   background-size: cover;
-//   background-position: center center;
-//   background-repeat: no-repeat;
-// }
-// .restaurant-summary {
-//   color: $restaurant-summary-color;
-//   padding-top: 4em;
-//   padding-bottom: 3em;
-//   text-align: center;
-//   p {
-//     font-size: 1.2em;
-//   }
-// }
+.slider {
+  position: relative;
+  text-align: center;
+}
+.slider__text {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  color: white;
+}
+
 .menus--featured {
   background-color: $featured-menus-background;
   margin-bottom: 1em;
   padding: 1em 0;
-  // .section__title {
-  //   color: $featured-menus-title-color;
-  //   border-bottom: 1px solid $featured-menus-border-color;
-  //   margin-bottom: .75em;
-  // }
 }
   .menus__item--home {
     text-align: center;
+    margin-top: 2rem;
   }
   .menu__title--home {
     font-family: "Great Vibes";
-    font-size: 44px !important;
+    font-size: 34px !important;
     text-transform: none !important;
+  }
+  .post-thumbnail {
+    position: relative;
+  }
+  .post-thumbnail-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
   }
   .post-thumbnail img {
     border-radius: 50%;
+    width: 250px;
+  }
+  .menu__link-home {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: none;
+    opacity: 0.8;
+    @include transition(background-color .35s);
+    &:hover {
+      background-color: black;
+    }
+    &:hover .post-find-more {
+      display: block;
+    }
+  }
+  .post-find-more {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    color: white;
+    display: none;
+    font-weight: 700;
+    span {
+      padding-top: 45%;
+      display: block;
+    }
   }
   .menu__description--home {
     color: #333;
@@ -1243,6 +1294,7 @@ label {
       color: #ffa42e;
     }
   }
+
   .menus__menu-link {
     color: $menu-link-color;
     &:hover, &:focus {
@@ -1283,13 +1335,64 @@ label {
   }
 }
 
+.parallax-section {
+  {% if theme_settings.home-display-about-background %}
+    background: url({{ 'home-about-background.jpg' | asset_url }});
+  {% endif %}
+  background-color: #000;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center center;
+  text-align: center;
+  overflow: hidden;
+  padding: 50px 0;
+  margin: 50px 0;
+}
+.parallax-section .text {
+  color: white;
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 56px;
+  font-weight: 700;
+}
+.parallax-section .button {
+  margin-top: 57px;
+}
+.parallax-section .title {
+  font-size: 52px;
+  font-family: "Great Vibes";
+  color: #fff;
+  text-align: center;
+}
+.parallax-section .title-before {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  font-family: $bodyFontStack;
+}
+
 .opening-hours {
   background-color: $opening-hours-background;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
+  text-align: center;
   .section__title {
     color: $opening-hours-title-color;
-    border-bottom: 1px solid $opening-hours-border-color;
-    margin-bottom: 1em;
+    margin-bottom: 0.25em;
+    font-family: "Great vibes";
+  }
+  dl {
+    margin-bottom: 0.5rem;
+  }
+  dt {
+    font-weight: 700;
+    font-size: 100%;
+  }
+  dd {
+    font-size: 100%;
   }
 }
   .opening-days {
@@ -1316,14 +1419,31 @@ label {
 .directions, .business-view {
   background-color: $directions-background;
   margin-bottom: 1em;
+  text-align: center;
+  position: relative;
   .section__title {
     color: $directions-title-color;
-    border-bottom: 1px solid $directions-border-color;
-    margin-bottom: 1em;
   }
 }
-  .map {
-    margin-bottom: 1em;
+  .wrapp-see-location {
+    padding-top: 7%;
+    background: #ffa42e;
+    background-color: transparentize(#ffa42e, 0.3);
+    position: relative;
+    height: 522px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .section__header {
+      margin-top: 100px;
+    }
+    h2 {
+      font-family: $bodyFontStack;
+      font-size: 100%;
+    }
+    .section__title {
+      color: $directions-title-color;
+    }
   }
     .map__image {
       @extend .auto;
@@ -1851,7 +1971,20 @@ x:-o-prefocus, .lb-overlay img {
       font-size: 1rem;
       text-align: right;
     }
-
+  .menus__item--home {
+    margin-top: 0;
+  }
+  .menu__title--home {
+    font-size: 44px !important;
+  }
+  .post-thumbnail img {
+    width: 295px;
+  }
+  .wrapp-see-location {
+    .section__header {
+      margin-top: 0;
+    }
+  }
   /**
  * Pure CSS Lightbox
  * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/
