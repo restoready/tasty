@@ -1,5 +1,6 @@
 <section class="page-header page-header--menu">
     <div class="back-menu-slider" style="{% if menu.main_image?%}background-image: url({{ menu.main_image | custom_image_url: '1920x480#' }}{% endif %})">
+      <div class="back-menu-slider-content">
       <h1 class="menu-slider-title">{{ menu.name }}</h1>
       {% if menu.children? %}
         <ul id="categories-slider">
@@ -14,6 +15,7 @@
           {% endfor %}
         </ul>
       {% endif %}
+      </div>
     </div>
     {% if menu.summary? %}
       <main class="section__main page-header__description">
