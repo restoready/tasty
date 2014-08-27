@@ -1142,13 +1142,16 @@ label {
     border: 3px solid black;
   }
 }
+.textarea-contact {
+  border: 3px solid black;
+}
 
 // Messages
 .message {
   padding: .5em 1em;
 }
 .message--success {
-  background-color: $message-success-background;
+  background-color: #ffa42e;
   color: $message-success-color;
 }
 .message--error {
@@ -1731,6 +1734,16 @@ label {
   font-family: $bodyFontStack;
   font-size: 1rem;
 }
+// contact page 
+.adress-contact-wrapper,
+.tel-contact-wrapper {
+  color: black;
+  font-size: 1rem;
+  padding: 1rem 0;
+  h3, p {
+    font-family: $bodyFontStack;
+  }
+}
 
 /*Ribbon CSS*/
 .ribbon {
@@ -2044,11 +2057,13 @@ x:-o-prefocus, .lb-overlay img {
     margin: 0 auto;
   }
   // newsletter page
-    .page-header--newsletter {
+    .page-header--newsletter,
+    .page-header--contact {
       width: 75%;
       margin: 2rem auto 0 auto;
     }
-    .newsletter-form {
+    .newsletter-form,
+    .form-contact {
       width: 75%;
       margin: 0 auto 5rem auto;
     }
@@ -2118,8 +2133,22 @@ x:-o-prefocus, .lb-overlay img {
   }
   // newsletter page
     .newsletter-form,
-    .page-header--newsletter {
+    .page-header--newsletter, {
       width: 50%;
+    }
+    .page-header--contact,
+    .form-contact {
+      max-width: 1000px;
+    }
+    .input--name,
+    .input--mail {
+      display: inline-block;
+      width: 177px;
+    }
+    // contact page 
+    .contact-informations {
+      padding-left: 8rem;
+      padding-top: 2rem;
     }
   /**
  * Pure CSS Lightbox
