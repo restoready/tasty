@@ -32,11 +32,6 @@ $form-label-color: {{ theme_settings.form-label-color }};
 $form-field-background: {{ theme_settings.form-field-border-color }};
 $form-field-border-color: {{ theme_settings.form-field-border-color }};
 
-$input-hint-info-background: {{ theme_settings.input-hint-info-background }};
-$input-hint-info-color: {{ theme_settings.input-hint-info-color }};
-$input-hint-error-background: {{ theme_settings.input-hint-error-background }};
-$input-hint-error-color: {{ theme_settings.input-hint-error-color }};
-
 // Buttons
 $button-background: {{ theme_settings.button-background }};
 $button-color: {{ theme_settings.button-color }};
@@ -808,20 +803,6 @@ img.circle {
 // ==============================================================================
 // #Forms
 // ==============================================================================
-.button,
-button,
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="email"],
-input[type="file"],
-input[type="number"],
-input[type="tel"],
-input[type="submit"],
-textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
 
 input,
 textarea,
@@ -970,6 +951,19 @@ form.form-horizontal,
     }
 }
 
+.button-custom {
+    color: white;
+    background-color: rgba(255, 164, 46, 1);
+    border: 2px solid #ffa42e;
+    font-weight: 700;
+    width: 250px;
+    @include transition(background-color 0.25s);
+    &:hover {
+      background-color: rgba(255, 164, 46, 0);
+      color: #ffa42e;
+    }
+}
+
 
 // ==============================================================================
 // #Layout
@@ -1115,20 +1109,13 @@ a {
       }
     }
 
+  .select-nav {
+    border: 2px solid black;
+  }
+
 
 // Forms
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="email"],
-input[type="file"],
-input[type="number"],
-input[type="tel"],
-textarea,
-select {
-  background-color: $form-field-background;
-  border: 1px solid $form-field-border-color;
-}
+
 
 legend {
   color: $form-legend-color;
@@ -1151,21 +1138,9 @@ label {
 .select,
 .textarea {
   margin: 0 0 1em;
-}
-  .input-hint {
-    padding: .15em .4em;
+  input {
+    border: 3px solid black;
   }
-  .input-hint--info {
-    background: $input-hint-info-background;
-    color: $input-hint-info-color;
-  }
-  .input-hint--error {
-    background: $input-hint-error-background;
-    color: $input-hint-error-color;
-  }
-
-.submit {
-  text-align: center;
 }
 
 // Messages
@@ -1177,8 +1152,9 @@ label {
   color: $message-success-color;
 }
 .message--error {
-  background-color: $message-error-background;
+  background-color: #ffa42e;
   color: $message-error-color;
+  margin: 0 1rem;
 }
 
 
@@ -1741,6 +1717,21 @@ label {
       background-color: rgba(0, 0, 0, 0.25);
   }
 
+// newsletter page
+.newsletter-wrapper {
+  text-align: center;
+}
+
+.newsletter-title {
+  font-family: "Great vibes";
+  font-size: 3rem;
+}
+
+.newsletter-description {
+  font-family: $bodyFontStack;
+  font-size: 1rem;
+}
+
 /*Ribbon CSS*/
 .ribbon {
   display: inline-block;
@@ -2052,6 +2043,15 @@ x:-o-prefocus, .lb-overlay img {
     max-width: 80%;
     margin: 0 auto;
   }
+  // newsletter page
+    .page-header--newsletter {
+      width: 75%;
+      margin: 2rem auto 0 auto;
+    }
+    .newsletter-form {
+      width: 75%;
+      margin: 0 auto 5rem auto;
+    }
 }
 
 // Large
@@ -2116,6 +2116,11 @@ x:-o-prefocus, .lb-overlay img {
   .food {
     max-width: 50%;
   }
+  // newsletter page
+    .newsletter-form,
+    .page-header--newsletter {
+      width: 50%;
+    }
   /**
  * Pure CSS Lightbox
  * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/

@@ -31,7 +31,7 @@
   
   <div class="large--hide">
     <form action="select-nav">
-      <select name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
+      <select class="select-nav" name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
         <option value="{{ localized_root_path }}">{{ "Accueil" | t }}</option>
         {% for menu in menus %}
           <option value="{{ menu.url }}">{{ menu.name }}</option>

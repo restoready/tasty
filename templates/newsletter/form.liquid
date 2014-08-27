@@ -1,10 +1,10 @@
 {% newsletter_subscribe_form %}
   <section class="page-header page-header--newsletter">
-    <div class="wrapper">
+    <div class="newsletter-wrapper">
       <header class="section__header page-header__header">
-        <h1 class="section__title page-header__title">{{ "Inscription à la newsletter" | t }}</h1>
+        <h1 class="newsletter-title">{{ "Inscription à la newsletter" | t }}</h1>
       </header>
-      <main class="section__main page-header__description">
+      <main class="newsletter-description">
         {% if form.created_successfully? %}
           <p>{{ "Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés du restaurant." | t }}</p>
         {% else %}
@@ -26,7 +26,7 @@
       <fieldset class="field-group">
         <div class="input">
           <label for="subscriberEmail">{{ "Votre adresse email :" | t }}</label>
-          <input id="subscriberEmail" name="subscriber[email]" type="text">
+          <input id="subscriberEmail" name="subscriber[email]" type="text" required>
           {% unless form.created_successfully? %}
             <div class="input-hint input-hint--error">
               {{ form.error }}
@@ -34,7 +34,7 @@
           {% endunless %}
         </div>
         <div class="submit">
-          <input class="button" type="submit" value="{{ "Valider" | t }}">
+          <input class="button-custom" type="submit" value="{{ "Valider" | t }}">
         </div>
       </fieldset>
     </div>
