@@ -3,11 +3,6 @@
 {% else %}
   <div class="menu" id="menu-{{menu.id}}">
 {% endif %}
-  <figure class="menu__image-container">
-    {% if menu.main_image? %}
-      {{ menu.main_image | custom_image_url: '1920x590#' | image_tag:'class: menu__image' }}
-    {% endif %}
-  </figure>
 {% if menu.depth == 1 %}
   <div class="wrapper">
 {% endif %}
