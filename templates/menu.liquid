@@ -1,27 +1,25 @@
 <section class="page-header page-header--menu">
-  <div class="wrapper">
-    <header class="section__header page-header__header">
-      <h1 class="section__title section__title--menu page-header__title">{{ menu.name }}</h1>
+    <div class="back-menu-slider" style="{% if menu.main_image?%}background-image: url({{ menu.main_image | custom_image_url: '1920x480#' }}{% endif %})">
+      <h1 class="menu-slider-title">{{ menu.name }}</h1>
       {% if menu.children? %}
-        <ul class="anchor-items">
+        <ul id="categories-slider">
           {% for child in menu.children %}
-            <li class="anchor-item">
+            <li class="categories-slider-item">
               <a href="#menu-{{child.id}}" class="anchor-scroll">
-                {{ child.main_image | custom_image_url: "100x100#" | image_tag: "class:anchor-image" }}
+                {{ child.main_image | custom_image_url: "100x100#" | image_tag: "class:", "width:100px" }}
                 <br>
-                <p class="anchor-name">{{ child.name}}</p>
+                {{ child.name}}
               </a>
             </li>
           {% endfor %}
         </ul>
       {% endif %}
-    </header>
+    </div>
     {% if menu.summary? %}
       <main class="section__main page-header__description">
         {{ menu.summary }}
       </main>
     {% endif %}
-  </div>
 </section>
 
 {% if menu.children? %}

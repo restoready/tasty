@@ -1500,8 +1500,31 @@ label {
     color: $menu-description-color;
     font-size: 1.2em;
     margin-bottom: 1em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
   }
-
+  .back-menu-slider {
+    background-color: #555;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .menu-slider-title {
+    font-family: "Great vibes";
+    font-size: 4rem;
+    color: white;
+  }
+  .categories-slider-item {
+    display: inline-block;
+    text-align: center;
+    margin: 0 0.5rem;
+    a {
+      color: white;
+      font-size: 100%;
+      img {
+        border-radius: 50%;
+      }
+    }
+  } 
 
 // http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
 // all menus
@@ -1540,19 +1563,14 @@ label {
   zoom: 1;
 }
   .food__image {
-    float: left;
+    margin: 0 auto;
+    display: block;
     margin-bottom: $gutter / 2;
-    margin-right: $gutter / 2;
   }
 
   .food__image--right {
     float: right;
     margin-left: $gutter / 2;
-  }
-
-  .food__image img,
-  .food__image--right img {
-    display: block;
   }
 
   .food-body {
@@ -1561,6 +1579,7 @@ label {
       font-family: $bodyFontStack;
       font-size: 1.2em;
       margin-bottom: .25em;
+      font-weight: 700;
     }
     .food__summary {
       font-size: 1em;
@@ -1600,7 +1619,6 @@ label {
   }
   .price__value {
     color: $price-value-color;
-    background-color: $price-value-background;
     border-bottom: 1px dotted $price-value-border-color;
     float: right;
     font-weight: 700;
@@ -1682,6 +1700,47 @@ label {
   .gallery__item:hover .photo__link {
       background-color: rgba(0, 0, 0, 0.25);
   }
+
+/*Ribbon CSS*/
+.ribbon {
+  display: inline-block;
+  margin-top: 20px;
+  position: relative;
+}
+.ribbon path {
+  fill: #ffa42e;
+}
+.ribbon svg {
+  width: 100%;
+  height: 58px;
+}
+.ribbon span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+  line-height: 68px;
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.ribbon-small {
+  height: 55px;
+  line-height: 15px;
+}
+.ribbon-small span {
+  height: 41px;
+  line-height: 64px;
+  font-size: 14px;
+}
+.wrap-reservation .ribbon {
+  margin-top: 27px;
+}
+.ribbon a {
+  text-decoration: none;
+}
 
 /**
  * Pure CSS Lightbox
@@ -1932,11 +1991,6 @@ x:-o-prefocus, .lb-overlay img {
 // #Breakpoints
 // ==============================================================================
 
-@include at-query($min, 480px) {
-  .button {
-    width: 350px;
-  }
-}
 // Medium
 @include at-query($min, $small) {
   body,
@@ -1944,6 +1998,19 @@ x:-o-prefocus, .lb-overlay img {
   textarea,
   select {
     font-size: 112.5%;
+  }
+  .button {
+    width: 350px;
+  }
+  .food__image {
+    margin: 0 0;
+    float: left;
+    margin-bottom: $gutter / 2;
+    margin-right: $gutter / 2;
+  }
+  .food {
+    max-width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -2005,6 +2072,9 @@ x:-o-prefocus, .lb-overlay img {
     .section__header {
       margin-top: 0;
     }
+  }
+  .food {
+    max-width: 50%;
   }
   /**
  * Pure CSS Lightbox
