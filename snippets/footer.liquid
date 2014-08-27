@@ -1,30 +1,64 @@
 <div class="wrapper">
-  <div class="back-to-top">
-    <a class="back-to-top__link" href="#top">
-      <i class="icon-arrow-up"></i> <span class="back-to-top__label">{{ "Haut de la page" | t }}</span>
-    </a>
+  <ul class="menu-footer medium-down--hide">
+    <li>
+      <a href="{{ localized_root_path }}">{{ "Accueil" | t }}</a>
+    </li>
+    {% for menu in menus %}
+      <li>
+        <a href="{{ menu.url }}">{{ menu.name }}</a>
+      </li>
+    {% endfor %}
+    {% if theme_settings.display_contact_form %}
+      <li>
+        <a href="{{ restaurant.contact_path }}">
+          {% if contact_settings.navigation_label? %}
+            {{ contact_settings.navigation_label }}
+          {% else %}
+            {{ contact_settings.contact_title }}
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
+    <li>
+      {{ "Newsletter" | newsletter_subscribe_url }}
+    </li>
+    {% for path in localized_page_paths %}
+      <li>
+        <a href="{{ path.url }}">{{ path.locale_name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  <div class="large--hide">
+    <form action="select-nav">
+      <select name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
+        <option value="{{ localized_root_path }}">{{ "Accueil" | t }}</option>
+        {% for menu in menus %}
+          <option value="{{ menu.url }}">{{ menu.name }}</option>
+        {% endfor %}
+        <option value="{{ restaurant.url }}">{{ "Le restaurant" | t }}</option>
+        <option value="Newsletter">{{ "Newsletter" | newsletter_subscribe_url }}</option>
+        {% if theme_settings.display_contact_form %}
+          <option value="{{ restaurant.contact_path }}">
+              {% if contact_settings.navigation_label? %}
+                {{ contact_settings.navigation_label }}
+              {% else %}
+                {{ contact_settings.contact_title }}
+              {% endif %}
+          </option>
+        {% endif %}
+        {% if localized_page_paths.size > 0 %}
+          {% for path in localized_page_paths %}
+            <option value="{{ path.url }}">
+              {{ path.locale_name }}
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </form>
   </div>
 
   <div class="grid">
-    {% if theme_settings.footer_display_newsletter %}
-      <div class="grid-item large--one-half">
-        <div class="footer__subscribe">
-          {% newsletter_subscribe_form %}
-            <fieldset class="field-group">
-              <div class="input">
-                <label class="subscribe__label" for="subscriberEmail">{{ "Entrez votre email pour recevoir notre newsletter :" | t }}</label>
-                <input id="subscriberEmail" name="subscriber[email]" type="email" required>
-              </div>
-              <div class="submit">
-                <button class="button" type="submit">
-                  <i class="icon-check"></i> {{ "Valider" | t }}
-                </button>
-              </div>
-            </fieldset>
-          {% endnewsletter_subscribe_form %}
-        </div>
-      </div>
-    {% endif %}
 
     <div class="grid-item {% if theme_settings.footer_display_newsletter %} large--one-half {% endif %}">
       <div class="footer__social">
