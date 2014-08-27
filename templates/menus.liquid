@@ -1,19 +1,15 @@
-<section class="page-header page-header--menus">
-  <div class="wrapper">
-    <header class="section__header page-header__header">
-      <h1 class="section__title section_title--allMenus page-header__title">{{ "Notre carte" | t }}</h1>
-    </header>
-  </div>
-</section>
-
 <section class="menus">
   <div class="wrapper">
-    <hr class="menus__separator">
     {% for menu in menus %}
-      <header class="section__header">
-        <h2 class="section__title section_title--allMenus">
-          <a class="menus__menu-link" href="{{ menu.url }}">{{ menu.name }}</a>
-        </h2>
+      <header class="section__header section-all-menus">
+        <div class="ribbon">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:="" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 261.98 57.981" enable-background="new 0 0 261.98 57.981" xml:space="preserve">
+            <g>
+              <path d="M36.638,7.173l8.318,50.808h172.071l8.318-50.808H36.638z M45.59,0H0.369l15.234,25.403L0,50.808h39.688L32.451,4.784L45.59,0z M246.377,25.403L261.611,0h-45.22l13.137,4.784l-7.235,46.023h39.686L246.377,25.403z"></path>
+            </g>
+          </svg>
+          <span>{{ menu.name }}</span>
+        </div>
       </header>
       <main class="section__main">
         <ol class="menus__children">
@@ -21,7 +17,7 @@
             <li class="menus__child">
               {% if child.main_image? %}
                 <div class="menus-thumbnail menus-thumbnail--all">
-                  {{ child.main_image | custom_image_url: "75x75#" | image_tag }}
+                  {{ child.main_image | custom_image_url: "175x175#" | image_tag }}
                 </div>
               {% endif %}
               <a class="menus__child-link" href="{{ menu.url }}#menu-{{child.id}}">{{ child.name }}</a>
@@ -29,7 +25,6 @@
           {% endfor %}
         </ol>
       </main>
-      <hr class="menus__separator">
     {% endfor %}
   </div>
 </section>

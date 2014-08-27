@@ -1266,14 +1266,9 @@ label {
     }
   }
 
-  .menus__menu-link {
-    color: $menu-link-color;
-    &:hover, &:focus {
-      color: $menu-link-hover-color;
-    }
-  }
   .menus__children {
     list-style: none;
+    margin-left: 0rem;
   }
     .menus__child {
       font-size: 1.2em;
@@ -1281,7 +1276,7 @@ label {
       margin-bottom: 2rem;
     }
       .menus__child-link {
-        color: $menu-link-color;
+        color: black;
         text-decoration: none;
         &:hover, &:focus {
           color: $menu-link-hover-color;
@@ -1492,6 +1487,8 @@ label {
 // all menus
 .section_title--allMenus {
   text-align: center;
+  font-family: $bodyFontStack;
+  color: black;
 }
 .menus-thumbnail--all img {
   border-radius: 50%;
@@ -1720,9 +1717,12 @@ label {
 }
 
 /*Ribbon CSS*/
+.section-all-menus {
+  text-align: center;
+}
 .ribbon {
   display: inline-block;
-  margin-top: 20px;
+  margin: 20px 0;
   position: relative;
 }
 .ribbon path {
@@ -2117,7 +2117,7 @@ x:-o-prefocus, .lb-overlay img {
     .input--name,
     .input--mail {
       display: inline-block;
-      width: 177px;
+      width: 165px;
     }
     // contact page 
     .contact-informations {
