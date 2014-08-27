@@ -1193,9 +1193,12 @@ label {
   }
     .page-header__title {
       color: $page-header-title-color;
+      font-family: $bodyFontStack;
+      font-size: 2rem;
     }
     .page-header__description {
       color: $page-header-description-color;
+      font-size: 1rem;
       p {
         font-size: 1.2em;
         margin-bottom: 0;
@@ -1667,8 +1670,41 @@ label {
     }
 
 // Gallery
+
+.restaurant-image {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  background-color: black;
+  margin-bottom: 2rem;
+}
+.restaurant-image-darken {
+  background-color: rgba(0,0,0,0.6);
+  padding: 8% 0 6.5% 0;
+}
+.restaurant-name {
+  font-family: $bodyFontStack;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.restaurant-slogan {
+  font-family: "Great vibes";
+  font-size: 4rem;
+}
+.restaurant-city {
+  font-family: $bodyFontStack;
+  font-size: 100%;
+  p {
+    display: inline;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  }
+}
 .restaurant-gallery {
   background-color: $restaurant-gallery-background;
+  margin-bottom: 2rem;
 }
   .gallery__item {
     position: relative;

@@ -1,9 +1,18 @@
+<section class="restaurant-header">
+  <div class="restaurant-image" style="{% if restaurant.main_image?%}background-image: url({{ restaurant.main_image | custom_image_url: '1920x480#' }}{% endif %})">
+    <div class="restaurant-image-darken">
+      <h3 class="restaurant-name">{{ restaurant.name }}</h3>
+      <h1 class="restaurant-slogan">{{ restaurant.slogan }}</h1>
+      <div class="restaurant-city-wrapper">
+        <div class="restaurant-city"><p>{{ restaurant.city }}</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% if restaurant.summary? %}
   <section class="page-header page-header--restaurant">
     <div class="wrapper">
-      <header class="section__header page-header__header">
-        <h1 class="section__title page-header__title">{{ "Le restaurant" | t }}</h1>
-      </header>
       <main class="section__main page-header__description">
         {{ restaurant.summary }}
       </main>
