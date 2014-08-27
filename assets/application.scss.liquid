@@ -3,70 +3,23 @@
 // ==============================================================================
 $body-background: {{ theme_settings.body-background }};
 $body-color: {{ theme_settings.body-color }};
-
-$restaurant-name-color: {{ theme_settings.restaurant-name-color }};
-$restaurant-summary-color: {{ theme_settings.restaurant-summary-color }};
-$slogan-color: {{ theme_settings.slogan-color }};
-
-$phone-number-link-color: {{ theme_settings.phone-number-link-color }};
-$phone-number-link-hover-color: {{ theme_settings.phone-number-link-hover-color }};
-
-$main-nav-background: {{ theme_settings.main-nav-background }};
-$main-nav-link-color: {{ theme_settings.main-nav-link-color }};
-$main-nav-link-hover-color: {{ theme_settings.main-nav-link-hover-color }};
-$main-nav-link-background: {{ theme_settings.main-nav-link-background }};
-$main-nav-link-hover-background: {{ theme_settings.main-nav-link-hover-background }};
-
-$footer-background: {{ theme_settings.footer-background }};
-$back-to-top-link-color: {{ theme_settings.back-to-top-link-color }};
-$back-to-top-link-hover-color: {{ theme_settings.back-to-top-link-hover-color }};
-$footer-subscribe-label-color: {{ theme_settings.footer-subscribe-label-color }};
-$social-link-color: {{ theme_settings.social-link-color }};
-$social-link-hover-color: {{ theme_settings.social-link-hover-color }};
-$legal-link-color: {{ theme_settings.legal-link-color }};
-$legal-link-hover-color: {{ theme_settings.legal-link-hover-color }};
-
-// Forms
-$form-legend-color: {{ theme_settings.form-legend-color }};
-$form-label-color: {{ theme_settings.form-label-color }};
-$form-field-background: {{ theme_settings.form-field-border-color }};
-$form-field-border-color: {{ theme_settings.form-field-border-color }};
-
-// Buttons
-$button-background: {{ theme_settings.button-background }};
-$button-color: {{ theme_settings.button-color }};
-$button-hover-background: {{ theme_settings.button-hover-background }};
-$button-hover-color: {{ theme_settings.button-hover-color }};
-
-// Messages
-$message-success-background: {{ theme_settings.message-success-background }};
-$message-success-color:      {{ theme_settings.message-success-color }};
-$message-error-background:   {{ theme_settings.message-error-background }};
-$message-error-color:        {{ theme_settings.message-error-color }};
-
-// Menus
-$menu-title-color: {{ theme_settings.menu-title-color }};
-$menu-description-color: {{ theme_settings.menu-description-color }};
-$menu-link-color: {{ theme_settings.menu-link-color }};
-$menu-link-hover-color: {{ theme_settings.menu-link-hover-color }};
+$body-color-second: {{ theme_settings.body-color-second }};
+$accent-color: {{ theme_settings.accent-color }};
 
 $back-to-menu-link-color: {{ theme_settings.back-to-menu-link-color }};
 $back-to-menu-link-hover-color: {{ theme_settings.back-to-menu-link-hover-color }};
+$nav-link-color: {{ theme_settings.nav-link-color }};
+$ribbon-text-color: {{ theme_settings.ribbon-text-color }};
+$menus-title: {{ theme_settings.menus-title }};
+$dish-title: {{ theme_settings.dish-title }};
+$menus-nav-back: {{ theme_settings.menus-nav-back }};
 
 // Foods
-$food-separator-color: rgba(black, .075);
-$food-summary-description-color: {{ theme_settings.food-summary-description-color }};
 $featured-star-color: {{ theme_settings.featured-star-color }};
 
 // Prices
-$price-label-background: transparent;
 $price-label-color: {{ theme_settings.price-label-color }};
-$price-value-background: {{ theme_settings.price-value-background }};
 $price-value-color: {{ theme_settings.price-value-color }};
-$price-border-color: {{ theme_settings.price-border-color }};
-$price-label-border-color: $price-border-color;
-$prices-top-border-color: $price-border-color;
-$price-value-border-color: $price-border-color;
 
 // Tags
 $label-vegetarian-background: {{ theme_settings.label-vegetarian-background }};
@@ -74,12 +27,6 @@ $label-vegetarian-color: {{ theme_settings.label-vegetarian-color }};
 $label-new-background: {{ theme_settings.label-new-background }};
 $label-new-color: {{ theme_settings.label-new-color }};
 
-// Page
-$page-header-background: {{ theme_settings.page-header-background }};
-$page-header-title-color: {{ theme_settings.page-header-title-color }};
-$page-header-description-color: {{ theme_settings.page-header-description-color }};
-$page-body-link-color: {{ theme_settings.page-body-link-color }};
-$page-body-link-hover-color: {{ theme_settings.page-body-link-hover-color }};
 
 // Featured menus
 $featured-menus-background:   {{ theme_settings.featured-menus-background }};
@@ -91,23 +38,9 @@ $featured-foods-background:   {{ theme_settings.featured-foods-background }};
 $featured-foods-title-color:  {{ theme_settings.featured-foods-title-color }};
 $featured-foods-border-color: {{ theme_settings.featured-foods-border-color }};
 
-// Opening hours
-$opening-hours-background:   {{ theme_settings.opening-hours-background }};
-$opening-hours-title-color:  {{ theme_settings.opening-hours-title-color }};
-$opening-hours-border-color: {{ theme_settings.opening-hours-border-color }};
-$opening-hours-day-color:    {{ theme_settings.opening-hours-day-color }};
-$opening-hours-shifts-color: {{ theme_settings.opening-hours-shifts-color }};
-
-// Directions
-$directions-background:   {{ theme_settings.directions-background }};
-$directions-title-color:  {{ theme_settings.directions-title-color }};
-$directions-border-color: {{ theme_settings.directions-border-color }};
-$address-color: {{ theme_settings.address-color }};
-
-// Restaurant photo gallery
-$restaurant-gallery-background: {{ theme_settings.restaurant-gallery-background }};
-$gallery-caption-color: {{ theme_settings.gallery-caption-color }};
-
+//Formulaires
+$label-form: {{ theme_settings.label-form }};
+$border-form: {{ theme_settings.border-form }};
 
 // ==============================================================================
 // #Box model
@@ -893,7 +826,7 @@ form.form-horizontal,
 // ==============================================================================
 .button {
   border: 0;
-  color: $button-color;
+  color: white;
   cursor: pointer;
   padding: .5em 2em;
   text-decoration: none;
@@ -921,12 +854,12 @@ form.form-horizontal,
   }
 }
 .button-orange {
-    color: #ffa42e;
+    color: $accent-color;
     background-color: none;
-    border: 2px solid #ffa42e;
+    border: 2px solid $accent-color;
     @include transition(background-color 0.25s);
     &:hover {
-      background-color: #ffa42e;
+      background-color: $accent-color;
       color: #fff;
     }
 }
@@ -954,13 +887,13 @@ form.form-horizontal,
 .button-custom {
     color: white;
     background-color: rgba(255, 164, 46, 1);
-    border: 2px solid #ffa42e;
+    border: 2px solid $accent-color;
     font-weight: 700;
     width: 250px;
     @include transition(background-color 0.25s);
     &:hover {
       background-color: rgba(255, 164, 46, 0);
-      color: #ffa42e;
+      color: $accent-color;
     }
 }
 
@@ -1006,24 +939,7 @@ a {
         display: block;
       }
     }
-      .logo__image {
-        @extend .auto;
-      }
-  .restaurant-name {
-    text-align: center;
-  }
-    .slogan {
-      color: $slogan-color;
-      font-size: .95em;
-      font-style: italic;
-      margin-bottom: .5em;
-    }
-    .restaurant-name__link {
-      color: $restaurant-name-color;
-      font-family: {{ theme_settings.header-font }};
-      font-size: 2em;
-      text-decoration: none;
-    }
+
 .main-nav {
   @include clearfix();
   background-color: $body-background;
@@ -1034,6 +950,9 @@ a {
 }
 .navigation {
   text-align: center;
+}
+.main-nav__item a {
+  color: $nav-link-color;
 }
 .main-content {
   margin-bottom: 1em;
@@ -1048,9 +967,9 @@ a {
       a {
         @include transition(color .25s);
         font-weight: 700;
-        color: black;
+        color: $main-nav__item;
         &:hover {
-          color: #ffa42e;
+          color: $accent-color;
         }
       }
     }
@@ -1064,13 +983,13 @@ a {
       }
         .social__link {
           @include transition(color .25s);
-          color: $social-link-color;
+          color: $body-color;
           display: inline-block;
           font-size: 2em;
           padding: .5em;
           text-decoration: none;
           &:hover, &:focus {
-            color: $social-link-hover-color;
+            color: $accent-color;
           }
         }
           .social__label {
@@ -1081,11 +1000,8 @@ a {
     text-align: center;
   }
     .legal__link {
-      color: $legal-link-color;
+      color: $body-color;
       text-decoration: none;
-      &:hover, &:focus {
-        color: $legal-link-hover-color;
-      }
     }
   .select-nav {
     border: 2px solid black;
@@ -1093,14 +1009,6 @@ a {
 
 
 // Forms
-legend {
-  color: $form-legend-color;
-}
-
-label {
-  color: $form-label-color;
-}
-
 .field-group {
   margin-bottom: 1em;
 }
@@ -1115,11 +1023,11 @@ label {
 .textarea {
   margin: 0 0 1em;
   input {
-    border: 3px solid black;
+    border: 3px solid $border-form;
   }
 }
 .textarea-contact {
-  border: 3px solid black;
+  border: 3px solid $border-form;
 }
 
 // Messages
@@ -1127,12 +1035,12 @@ label {
   padding: .5em 1em;
 }
 .message--success {
-  background-color: #ffa42e;
-  color: $message-success-color;
+  background-color: $accent-color;
+  color: $body-color-second;
 }
 .message--error {
-  background-color: #ffa42e;
-  color: $message-error-color;
+  background-color: $accent-color;
+  color: $body-color-second;
   margin: 0 1rem;
 }
 
@@ -1140,18 +1048,17 @@ label {
 // #Modules
 // ==============================================================================
 .page-header {
-  background-color: $page-header-background;
   padding: 1em 0;
 }
   .page-header__header {
   }
     .page-header__title {
-      color: $page-header-title-color;
+      color: $body-color;
       font-family: $bodyFontStack;
       font-size: 2rem;
     }
     .page-header__description {
-      color: $page-header-description-color;
+      color: $body-color;
       font-size: 1rem;
       p {
         font-size: 1.2em;
@@ -1160,13 +1067,8 @@ label {
     }
   .page-body {
     a {
-      color: $page-body-link-color;
-      border-bottom: 1px solid scale-color($page-body-link-color, $lightness: +75%);
+      color: $body-color;
       text-decoration: none;
-      &:hover, &:focus {
-        color: $page-body-link-hover-color;
-        border-bottom: 1px solid scale-color($page-body-link-hover-color, $lightness: +75%);
-      }
     }
   }
 
@@ -1200,7 +1102,7 @@ label {
     margin-top: 2rem;
   }
   .menu__title--home {
-    font-family: "Great Vibes";
+    font-family: $headerFontStack;
     font-size: 34px !important;
     text-transform: none !important;
   }
@@ -1227,7 +1129,7 @@ label {
     opacity: 0.8;
     @include transition(background-color .35s);
     &:hover {
-      background-color: black;
+      background-color: $body-color;
     }
     &:hover .post-find-more {
       display: block;
@@ -1237,15 +1139,15 @@ label {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    color: white;
+    color: $body-color-second;
     display: none;
     font-weight: 700;
     span {
       padding-top: 45%;
       display: block;
       .divider {
-        border-top: 1px solid white;
-        border-bottom: 1px solid white;
+        border-top: 1px solid $body-color-second;
+        border-bottom: 1px solid $body-color-second;
         width: 110px;
         margin: 0 auto;
       }
@@ -1262,7 +1164,7 @@ label {
     text-transform: uppercase;
     @include transition(color .25s);
     &:hover {
-      color: #ffa42e;
+      color: $accent-color;
     }
   }
 
@@ -1279,17 +1181,9 @@ label {
         color: black;
         text-decoration: none;
         &:hover, &:focus {
-          color: $menu-link-hover-color;
+          color: #333333;
         }
       }
-  .menus__separator {
-    border: none;
-    border-top: medium solid $food-separator-color;
-    color: $food-separator-color;
-    margin: 1em 0;
-    padding: 0;
-  }
-
 .foods--featured {
   background-color: $featured-foods-background;
   margin-bottom: 1em;
@@ -1327,7 +1221,7 @@ label {
 }
 .parallax-section .title {
   font-size: 52px;
-  font-family: "Great Vibes";
+  font-family: $headerFontStack;
   color: #fff;
   text-align: center;
 }
@@ -1342,13 +1236,11 @@ label {
 }
 
 .opening-hours {
-  background-color: $opening-hours-background;
   margin-bottom: 3em;
   text-align: center;
   .section__title {
-    color: $opening-hours-title-color;
     margin-bottom: 0.25em;
-    font-family: "Great vibes";
+    font-family: $headerFontStack;
   }
   dl {
     margin-bottom: 0.5rem;
@@ -1366,14 +1258,12 @@ label {
     margin-bottom: 1em;
   }
     .opening-day {
-      color: $opening-hours-day-color;
       clear: left;
       float: left;
       font-size: 1.2em;
       width: 40%;
     }
     .opening-shifts {
-      color: $opening-hours-shifts-color;
       font-size: 1.2em;
       margin-left: 50%;
     }
@@ -1383,22 +1273,18 @@ label {
   }
 
 .directions, .business-view {
-  background-color: $directions-background;
   margin-bottom: 1em;
   text-align: center;
   position: relative;
-  .section__title {
-    color: $directions-title-color;
-  }
 }
 .localisation-title {
-  font-family: "Great vibes";
+  font-family: $headerFontStack;
   font-size: 4rem;
 }
   .wrapp-see-location {
     padding-top: 7%;
-    background: #ffa42e;
-    background-color: transparentize(#ffa42e, 0.3);
+    background: $accent-color;
+    background-color: transparentize($accent-color, 0.3);
     position: relative;
     height: 522px;
     position: absolute;
@@ -1411,15 +1297,12 @@ label {
       font-family: $bodyFontStack;
       font-size: 100%;
     }
-    .section__title {
-      color: $directions-title-color;
-    }
   }
     .map__image {
       @extend .auto;
     }
   .address {
-    color: $address-color;
+    color: black;
     font-size: 1.2em;
   }
 
@@ -1436,19 +1319,13 @@ label {
       @extend .auto;
     }
     .menu__title {
-      color: $menu-title-color;
+      color: #333333;
       margin-bottom: .5em;
       text-align: center;
       font-family: $bodyFontStack;
-      a {
-        color: $menu-link-color;
-        &:hover {
-          color: $menu-link-hover-color;
-        }
-      }
     }
   .menu__description {
-    color: $menu-description-color;
+    color: black;
     font-size: 1.2em;
     margin-bottom: 1em;
     text-align: center;
@@ -1466,7 +1343,7 @@ label {
     padding: 1rem 0;
   }
   .menu-slider-title {
-    font-family: "Great vibes";
+    font-family: $headerFontStack;
     font-size: 4rem;
     color: white;
   }
@@ -1543,18 +1420,11 @@ label {
     }
     .food__summary {
       font-size: 1em;
-      color: $food-summary-description-color;
+      color: black;
     }
     .foot-prices {
 
     }
-  .food__separator {
-    border: none;
-    border-top: 1px solid $food-separator-color;
-    color: $food-separator-color;
-    margin: .675em 0;
-    padding: 0;
-  }
 .food--featured {
   .icon-star {
     color: $featured-star-color;
@@ -1571,7 +1441,6 @@ label {
   .price__label {
     clear: left;
     color: $price-label-color;
-    background-color: $price-label-background;
     float: left;
     width: 66%;
   }
@@ -1640,7 +1509,7 @@ label {
   font-weight: 700;
 }
 .restaurant-slogan {
-  font-family: "Great vibes";
+  font-family: $headerFontStack;
   font-size: 4rem;
 }
 .restaurant-city {
@@ -1653,7 +1522,6 @@ label {
   }
 }
 .restaurant-gallery {
-  background-color: $restaurant-gallery-background;
   margin-bottom: 2rem;
 }
   .gallery__item {
@@ -1676,7 +1544,6 @@ label {
     .photo__link {
       @include transition(background-color .5s);
       background-color: rgba(0, 0, 0, 0.5);
-      color: $gallery-caption-color;
       font-weight: 700;
       line-height: 200px;
       position: absolute;
@@ -1697,7 +1564,7 @@ label {
 }
 
 .newsletter-title {
-  font-family: "Great vibes";
+  font-family: $headerFontStack;
   font-size: 3rem;
 }
 
@@ -1726,7 +1593,7 @@ label {
   position: relative;
 }
 .ribbon path {
-  fill: #ffa42e;
+  fill: $accent-color;
 }
 .ribbon svg {
   width: 100%;
@@ -1740,7 +1607,7 @@ label {
   text-align: center;
   line-height: 68px;
   font-size: 20px;
-  color: white;
+  color: $ribbon-text-color;
   text-transform: uppercase;
   font-weight: 800;
 }
@@ -1853,9 +1720,6 @@ label {
 x:-o-prefocus, .lb-overlay img {
     height: 100%;
 }
-
-
-
 
 // ==============================================================================
 // #Icomoon font
@@ -2068,15 +1932,15 @@ x:-o-prefocus, .lb-overlay img {
     }
       .main-nav__link {
         @include transition(border .25s);
-        color: $main-nav-link-color;
         display: inline-block;
         font-size: 1em;
         text-decoration: none;
         padding: .5em;
         font-weight: 700;
+        color: $main-nav__item;
         border-bottom: 4px solid white;
         &:hover {
-          border-bottom: 4px solid #ffa42e;
+          border-bottom: 4px solid $accent-color;
         }
       }
 
@@ -2129,15 +1993,15 @@ x:-o-prefocus, .lb-overlay img {
       width: 50%;
       margin: 0 auto;
     }
-  /**
- * Pure CSS Lightbox
- * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/
- */
-.lb-overlay a.lb-close{
-  top: 45px;
-}
-.lb-overlay:target {
-  width: auto;
-  padding: 80px 100px 120px 100px;
-}
+    /**
+   * Pure CSS Lightbox
+   * @see http://tympanus.net/codrops/2011/12/26/css3-lightbox/
+   */
+  .lb-overlay a.lb-close{
+    top: 45px;
+  }
+  .lb-overlay:target {
+    width: auto;
+    padding: 80px 100px 120px 100px;
+  }
 }
