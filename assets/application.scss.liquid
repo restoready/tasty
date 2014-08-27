@@ -1024,20 +1024,6 @@ a {
       font-size: 2em;
       text-decoration: none;
     }
-  .phone-number {
-    margin-bottom: 1em;
-    text-align: center;
-  }
-    .phone-number__link {
-      color: {{ theme_settings.phone-number-link-color }};
-      font-size: 1.25em;
-      text-decoration: none;
-      &:hover, &:focus {
-        color: {{ theme_settings.phone-number-link-hover-color }};
-      }
-    }
-      .phone-number__label {
-      }
 .main-nav {
   @include clearfix();
   background-color: $body-background;
@@ -1052,11 +1038,6 @@ a {
 .main-content {
   margin-bottom: 1em;
 }
-  .section__header {
-  }
-  .section__footer {
-  }
-
 .main-footer {
 }
   .menu-footer {
@@ -1073,8 +1054,6 @@ a {
         }
       }
     }
-  }
-  .footer__social {
   }
     .social__items {
       margin: .75em 0;
@@ -1108,15 +1087,12 @@ a {
         color: $legal-link-hover-color;
       }
     }
-
   .select-nav {
     border: 2px solid black;
   }
 
 
 // Forms
-
-
 legend {
   color: $form-legend-color;
 }
@@ -1159,7 +1135,6 @@ label {
   color: $message-error-color;
   margin: 0 1rem;
 }
-
 
 // ==============================================================================
 // #Modules
@@ -1421,6 +1396,10 @@ label {
     color: $directions-title-color;
   }
 }
+.localisation-title {
+  font-family: "Great vibes";
+  font-size: 4rem;
+}
   .wrapp-see-location {
     padding-top: 7%;
     background: #ffa42e;
@@ -1448,8 +1427,6 @@ label {
     color: $address-color;
     font-size: 1.2em;
   }
-  .directions__footer {
-  }
 
 .menu {
   padding-bottom: 1.5em;
@@ -1463,9 +1440,6 @@ label {
     .menu__image {
       @extend .auto;
     }
-  .menu__header {
-
-  }
     .menu__title {
       color: $menu-title-color;
       margin-bottom: .5em;
@@ -1888,12 +1862,12 @@ x:-o-prefocus, .lb-overlay img {
 // https://icomoon.io/app/
 // ==============================================================================
 @font-face {
-  font-family: 'restoready-starter';
-  src:url("{{ 'restoready-starter.eot?g9q59m' | asset_url }}");
-  src:url("{{ 'restoready-starter.eot?#iefixg9q59m' | asset_url }}") format('embedded-opentype'),
-    url("{{ 'restoready-starter.woff?g9q59m' | asset_url }}") format('woff'),
-    url("{{ 'restoready-starter.ttf?g9q59m' | asset_url }}") format('truetype'),
-    url("{{ 'restoready-starter.svg?g9q59m#restoready-starter' | asset_url }}") format('svg');
+  font-family: "restoready-starter";
+  src: url("{{ 'restoready-starter.eot' | asset_url }}");
+  src: url("{{ 'restoready-starter.eot' | asset_url }}") format('embedded-opentype'),
+    url("{{ 'restoready-starter.woff' | asset_url }}") format('woff'),
+    url("{{ 'restoready-starter.ttf' | asset_url }}") format('truetype'),
+    url("{{ 'restoready-starter.svg' | asset_url }}") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -2166,9 +2140,4 @@ x:-o-prefocus, .lb-overlay img {
   width: auto;
   padding: 80px 100px 120px 100px;
 }
-}
-
-// > Large
-@include at-query($min, $siteWidth) {
-
 }
