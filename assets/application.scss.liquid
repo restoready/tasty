@@ -911,7 +911,6 @@ form.form-horizontal,
 // #Links and Buttons
 // ==============================================================================
 .button {
-  @include transition(background-color .25s);
   border: 0;
   color: $button-color;
   cursor: pointer;
@@ -923,7 +922,7 @@ form.form-horizontal,
   text-align: center;
   margin: 2rem auto;
   display: block;
-  width: 350px;
+  width: 250px;
   font-weight: 700;
 
   &.button--small {
@@ -935,13 +934,6 @@ form.form-horizontal,
     width: 100%;
   }
 
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $button-hover-background;
-    color: $button-hover-color;
-  }
-
   &[disabled],
   &.disabled {
     cursor: default;
@@ -951,7 +943,7 @@ form.form-horizontal,
     color: #ffa42e;
     background-color: none;
     border: 2px solid #ffa42e;
-    @include transition(background-color color .25s);
+    @include transition(background-color 0.25s);
     &:hover {
       background-color: #ffa42e;
       color: #fff;
@@ -959,12 +951,22 @@ form.form-horizontal,
 }
 .button-black {
     color: white;
-    background-color: black;
+    background-color: rgba(0,0,0,1);
     border: 2px solid black;
-    @include transition(background-color color .25s);
+    @include transition(background-color 0.25s);
     &:hover {
-      background-color: none;
+      background-color: rgba(0,0,0,0);
       color: black;
+    }
+}
+.button-white {
+    color: black;
+    background-color: rgba(255,255,255,1);
+    border: 2px solid white;
+    @include transition(background-color 0.25s);
+    &:hover {
+      background-color: rgba(255,255,255,0);
+      color: white;
     }
 }
 
@@ -972,6 +974,13 @@ form.form-horizontal,
 // ==============================================================================
 // #Layout
 // ==============================================================================
+@font-face {
+  font-family: "Intro Inline";
+  src: url("{{ 'IntroInline.eot' | asset_url }}");
+  src: local("Intro Inline"), url("{{ 'IntroInline.woff' | asset_url }}") format('woff'), url("{{ 'IntroInline.ttf' | asset_url }}") format('truetype'), url("{{ 'IntroInline.svg' | asset_url }}") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   color: $body-color;
   background-color: $body-background;
@@ -1055,28 +1064,20 @@ a {
   }
 
 .main-footer {
-  background-color: $footer-background;
-  border-top: 1px solid scale-color($footer-background, $lightness: -5%);
 }
-  .back-to-top {
-    padding: $gutter;
+  .menu-footer {
     text-align: center;
-  }
-    .back-to-top__link {
-      color: $back-to-top-link-color;
-      text-decoration: none;
-      &:hover, &:focus {
-        color: $back-to-top-link-hover-color;
+    li {
+      display: inline-block;
+      margin: 0 0.5rem;
+      a {
+        @include transition(color .25s);
+        font-weight: 700;
+        color: black;
+        &:hover {
+          color: #ffa42e;
+        }
       }
-    }
-      .back-to-top__label {
-      }
-  .footer__subscribe {
-    margin-bottom: 1em;
-    .subscribe__label {
-      color: $footer-subscribe-label-color;
-    }
-    .subscribe__submit {
     }
   }
   .footer__social {
@@ -1220,9 +1221,16 @@ label {
 }
 .slider__text {
   position: absolute;
-  top: 25%;
+  top: 30%;
   width: 100%;
   color: white;
+  h1 {
+    font-family: "Intro Inline";
+  }
+  h5 {
+    font-family: $bodyFontStack;
+    font-size: 100%;
+  }
 }
 
 .menus--featured {
@@ -1278,6 +1286,12 @@ label {
     span {
       padding-top: 45%;
       display: block;
+      .divider {
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        width: 110px;
+        margin: 0 auto;
+      }
     }
   }
   .menu__description--home {
@@ -1916,6 +1930,11 @@ x:-o-prefocus, .lb-overlay img {
 // #Breakpoints
 // ==============================================================================
 
+@include at-query($min, 480px) {
+  .button {
+    width: 350px;
+  }
+}
 // Medium
 @include at-query($min, $small) {
   body,
