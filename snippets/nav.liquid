@@ -51,14 +51,14 @@
     <div class="large--hide">
     <form action="select-nav">
       <select class="select-nav" name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
-        <option value="{{ localized_root_path }}">{{ "Accueil" | t }}</option>
+        <option value="{{ localized_root_path }}" {% if current_path == localized_root_path %}selected{%endif%}>{{ "Accueil" | t }}</option>
         {% for menu in menus %}
-          <option value="{{ menu.url }}">{{ menu.name }}</option>
+          <option value="{{ menu.url }}" {% if current_path == menu.url %}selected{%endif%}>{{ menu.name }}</option>
         {% endfor %}
-        <option value="{{ restaurant.url }}">{{ "Le restaurant" | t }}</option>
-        <option value="Newsletter">{{ "Newsletter" | newsletter_subscribe_url }}</option>
+        <option value="{{ restaurant.url }}" {% if current_path == restaurant.url %}selected{%endif%}>{{ "Le restaurant" | t }}</option>
+        <option value="{{ newsletter_subscribe_form.new_url }}" {% if current_path == newsletter_subscribe_form.new_url %}selected{%endif%}>{{ "Newsletter" | t }}</option>
         {% if theme_settings.display_contact_form %}
-          <option value="{{ restaurant.contact_path }}">
+          <option value="{{ restaurant.contact_path }}" {% if current_path == restaurant.contact_path %}selected{%endif%}>
               {% if contact_settings.navigation_label? %}
                 {{ contact_settings.navigation_label }}
               {% else %}

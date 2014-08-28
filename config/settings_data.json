@@ -42,7 +42,7 @@
     "google_map_type": "image",
     "footer_display_newsletter": true,
     "display_contact_form": true,
-    "home-display-about-background": true
+    "home-display-about-background": false
   },
   "presets":{
     "Original":{
@@ -93,7 +93,7 @@
       "google_map_type": "image",
       "footer_display_newsletter": true,
       "display_contact_form": true,
-      "home-display-about-background": true
+      "home-display-about-background": false
     }
   }
 }

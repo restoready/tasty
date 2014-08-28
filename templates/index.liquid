@@ -93,20 +93,18 @@
 </div>
 
 <section class="parallax-section">
-  <div class="wrapper">
-    <div class="grid">
-      <h3 class="title-before">{{ "À propos" | t }}</h3>
-      {% if restaurant.slogan? %}
-        <h1 class="title">{{ restaurant.slogan }}</h1>
-      {% endif %}  
-      {% if restaurant.summary? %}
-        <div class="text">{{ restaurant.summary }}<br>
-          <a href="{{ restaurant.url }}" class="button button-orange" target="_self">
-            <span>{{ "En savoir +" | t }}</span>
-          </a>
-        </div>
-      {% endif %}
-    </div>
+  <div class="parallax-section-wrapper">
+    <h3 class="title-before">{{ "À propos" | t }}</h3>
+    {% if restaurant.slogan? %}
+      <h1 class="title">{{ restaurant.slogan }}</h1>
+    {% endif %}  
+    {% if restaurant.summary? %}
+      <div class="text">{{ restaurant.summary }}<br>
+        <a href="{{ restaurant.url }}" class="button button-orange" target="_self">
+          <span>{{ "En savoir +" | t }}</span>
+        </a>
+      </div>
+    {% endif %}
   </div>
 </section>
 

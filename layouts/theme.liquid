@@ -3,21 +3,16 @@
   <head>
     {% title_tag %}
     {% meta_description_tag %}
-
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ restaurant.host | url_canonical | canonical_tag }}
 
     {{ 'application.css' | asset_url | stylesheet_tag }}
-    {{ 'jquery.bxslider.css' | asset_url | stylesheet_tag }}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     {% if theme_settings.google-fonts-link %}
       {{ theme_settings.google-fonts-link | replace:'http:','https:' }}
     {% endif %}
-
-    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-
     <script src="//polyfill.io"></script>
   </head>
   <body>
@@ -37,7 +32,12 @@
     {{ 'jquery.bxslider.min.js' | asset_url | javascript_tag }}
     <script>
       $(document).ready(function(){
-        $('.bxslider').bxSlider();
+        $('.bxslider').bxSlider({
+          pager: false,
+          auto: true,
+          speed: 500,
+          responsive: true
+        });
       });
     </script>
   </body>
