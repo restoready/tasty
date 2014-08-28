@@ -1914,71 +1914,27 @@ x:-o-prefocus, .lb-overlay img {
 
 .bx-wrapper .bx-prev {
   left: 10px;
-  background: url("{{ 'controls.png' | asset_url }}") no-repeat 0 -32px;
+  background: url("{{ 'controls-arrow.png' | asset_url }}") no-repeat -60px 0px;
 }
 
 .bx-wrapper .bx-next {
   right: 10px;
-  background: url("{{ 'controls.png' | asset_url }}") no-repeat -43px -32px;
-}
-
-.bx-wrapper .bx-prev:hover {
-  background-position: 0 0;
-}
-
-.bx-wrapper .bx-next:hover {
-  background-position: -43px 0;
+  background: url("{{ 'controls-arrow.png' | asset_url }}") no-repeat 0px 0px;
 }
 
 .bx-wrapper .bx-controls-direction a {
   position: absolute;
   top: 50%;
-  margin-top: -16px;
+  margin-top: 115px;
   outline: 0;
-  width: 32px;
-  height: 32px;
+  width: 60px;
+  height: 60px;
   text-indent: -9999px;
   z-index: 9999;
 }
 
 .bx-wrapper .bx-controls-direction a.disabled {
   display: none;
-}
-
-/* AUTO CONTROLS (START / STOP) */
-
-.bx-wrapper .bx-controls-auto {
-  text-align: center;
-}
-
-.bx-wrapper .bx-controls-auto .bx-start {
-  display: block;
-  text-indent: -9999px;
-  width: 10px;
-  height: 11px;
-  outline: 0;
-  background: url("{{ 'controls.png' | asset_url }}") -86px -11px no-repeat;
-  margin: 0 3px;
-}
-
-.bx-wrapper .bx-controls-auto .bx-start:hover,
-.bx-wrapper .bx-controls-auto .bx-start.active {
-  background-position: -86px 0;
-}
-
-.bx-wrapper .bx-controls-auto .bx-stop {
-  display: block;
-  text-indent: -9999px;
-  width: 9px;
-  height: 11px;
-  outline: 0;
-  background: url("{{ 'controls.png' | asset_url }}") -86px -44px no-repeat;
-  margin: 0 3px;
-}
-
-.bx-wrapper .bx-controls-auto .bx-stop:hover,
-.bx-wrapper .bx-controls-auto .bx-stop.active {
-  background-position: -86px -33px;
 }
 
 /* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
@@ -2048,6 +2004,9 @@ x:-o-prefocus, .lb-overlay img {
     .form-contact {
       width: 75%;
       margin: 0 auto 5rem auto;
+    }
+    .bx-wrapper .bx-controls-direction a {
+      margin-top: 8px;
     }
 }
 
@@ -2139,6 +2098,9 @@ x:-o-prefocus, .lb-overlay img {
     .wrapper-terms {
       width: 50%;
       margin: 0 auto;
+    }
+    .bx-wrapper .bx-controls-direction a {
+      margin-top: -16px;
     }
     /**
    * Pure CSS Lightbox
