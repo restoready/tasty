@@ -967,7 +967,7 @@ a {
       a {
         @include transition(color .25s);
         font-weight: 700;
-        color: $main-nav__item;
+        color: $nav-link-color;
         &:hover {
           color: $accent-color;
         }
@@ -1927,21 +1927,24 @@ x:-o-prefocus, .lb-overlay img {
     vertical-align: middle;
   }
     .main-nav__item {
+      @include transition(border .25s);
       display: inline-block;
       font-size: 1rem;
+      border-bottom: 4px solid white;
+      &:hover {
+          border-bottom: 4px solid $accent-color;
+      }
+    }
+    .main-nav__item--current {
+        border-bottom: 4px solid $accent-color;
     }
       .main-nav__link {
-        @include transition(border .25s);
         display: inline-block;
         font-size: 1em;
         text-decoration: none;
         padding: .5em;
         font-weight: 700;
-        color: $main-nav__item;
-        border-bottom: 4px solid white;
-        &:hover {
-          border-bottom: 4px solid $accent-color;
-        }
+        color: $nav-link-color;
       }
 
   .main-nav__languages {
