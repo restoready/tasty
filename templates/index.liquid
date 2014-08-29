@@ -110,80 +110,78 @@
   </div>
 </section>
 
-<div class="wrapper">
-  <div class="grid">
-    <section class="opening-hours">
-      <header class="section__header">
-        <h2 class="section__title">{{ "Horaires" | t }}</h2>
-      </header>
-      <main>
-        <dl>
-          {% for day in opening_hours %}
-            <dt>
-              {{ day.name }}
-            </dt>
-            <dd>
-              {{ day.shifts }}
-            </dd>
-          {% endfor %}
-        </dl>
-        {% if restaurant.opening_hours_information? %}
+<div class="grid">
+  <section class="opening-hours">
+    <header class="section__header">
+      <h2 class="section__title">{{ "Horaires" | t }}</h2>
+    </header>
+    <main>
+      <dl>
+        {% for day in opening_hours %}
+          <dt>
+            {{ day.name }}
+          </dt>
+          <dd>
+            {{ day.shifts }}
+          </dd>
+        {% endfor %}
+      </dl>
+      {% if restaurant.opening_hours_information? %}
+        <div>
+          <p>{{ restaurant.opening_hours_information }}</p>
+        </div>
+      {% endif %}
+    </main>
+  </section>
+
+  <section class="directions">
+    <main class="section__main">
+      <div class="map contact_map">
+        {% if theme_settings.google_map_type != "" %}
           <div>
-            <p>{{ restaurant.opening_hours_information }}</p>
+            {% if theme_settings.google_map_type == "embed" %}
+              {% google_map_embed: "size:100%x520" %}
+            {% elsif theme_settings.google_map_type == "image" %}
+              <a href="{% google_map_url %}">
+                <img src="{% google_map_image_url: "size:640x260" %}" />
+              </a>
+            {% endif %}
           </div>
         {% endif %}
-      </main>
-    </section>
-
-    <section class="directions">
-      <main class="section__main">
-        <div class="map contact_map">
-          {% if theme_settings.google_map_type != "" %}
-            <div>
-              {% if theme_settings.google_map_type == "embed" %}
-                {% google_map_embed: "size:100%x520" %}
-              {% elsif theme_settings.google_map_type == "image" %}
-                <a href="{% google_map_url %}">
-                  <img src="{% google_map_image_url: "size:640x260" %}" />
-                </a>
-              {% endif %}
-            </div>
-          {% endif %}
-        </div>
-        <div class="wrapp-see-location">
-          <header class="section__header">
-            <h2>{{ "Localisation" | t }}</h2>
-          </header>
-          <h1 class="localisation-title">{{ restaurant.name }}</h1>
-          {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-            <div class="address">
-              {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-                <div>
-                  <p>
-                    {% if restaurant.street_address? %}
-                      {{ restaurant.street_address }}
-                      <br />
-                    {% endif %}
-                    {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
-                    {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
-                  </p>
-                </div>
-              {% endif %}
-            </div>
-          {% endif %}
-          <footer class="section__footer">
-            <a class="button button-black btn-see-location" href="{% google_map_url %}">
-            {{ "Voir l'itinéraire" | t }}
-            </a>
-          </footer>
-        </div>
-      </main>
-      <script>
-        jQuery(".btn-see-location").click(function (e) {
-          e.preventDefault();
-          jQuery(this).parents(".wrapp-see-location").fadeOut("slow");
-        });
-      </script>
-    </section>
-  </div>
+      </div>
+      <div class="wrapp-see-location">
+        <header class="section__header">
+          <h2>{{ "Localisation" | t }}</h2>
+        </header>
+        <h1 class="localisation-title">{{ restaurant.name }}</h1>
+        {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+          <div class="address">
+            {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+              <div>
+                <p>
+                  {% if restaurant.street_address? %}
+                    {{ restaurant.street_address }}
+                    <br />
+                  {% endif %}
+                  {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
+                  {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <footer class="section__footer">
+          <a class="button button-black btn-see-location" href="{% google_map_url %}">
+          {{ "Voir l'itinéraire" | t }}
+          </a>
+        </footer>
+      </div>
+    </main>
+    <script>
+      jQuery(".btn-see-location").click(function (e) {
+        e.preventDefault();
+        jQuery(this).parents(".wrapp-see-location").fadeOut("slow");
+      });
+    </script>
+  </section>
 </div>
