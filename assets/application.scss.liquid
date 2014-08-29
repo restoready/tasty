@@ -1005,6 +1005,7 @@ a {
           @include transition(color .25s);
           color: $body-color;
           display: inline-block;
+          vertical-align: middle;
           font-size: 2em;
           padding: .5em;
           text-decoration: none;
@@ -1015,6 +1016,12 @@ a {
           .social__label {
             @extend .hide-text;
           }
+
+        .social__link--phone,
+        .social__link--envelope {
+          font-size: 1.5em;
+        }
+
   .footer__legal {
     margin-bottom: 1em;
     text-align: center;

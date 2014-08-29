@@ -65,14 +65,14 @@
         <ul class="social__items">
           {% if restaurant.phone? %}
           <li class="social__item">
-            <a class="social__link icon-phone" href="tel:{{ restaurant.phone_uri }}">
+            <a class="social__link social__link--phone icon-phone" href="tel:{{ restaurant.phone_uri }}">
               <span class="social__label">{{ restaurant.phone }}</span>
             </a>
           </li>
           {% endif %}
           {% if restaurant.email %}
             <li class="social__item">
-              <a class="social__link icon-envelope" href="mailto:#{{restaurant.email}}">
+              <a class="social__link social__link--envelope icon-envelope" href="mailto:#{{restaurant.email}}">
                 <span class="social__label">{{ "Envoyer un email" | t }}</span>
               </a>
             </li>
