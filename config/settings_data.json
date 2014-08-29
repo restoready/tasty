@@ -1,8 +1,8 @@
 {
   "current":{
-    "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Linden+Hill|Open+Sans:400,700' rel='stylesheet' type='text/css'>",
+    "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Great+Vibes|Raleway:400,700' rel='stylesheet' type='text/css'>",
     "header-font": "'Great vibes'",
-    "body-font": "'Raleway', sans-serif",
+    "body-font": "'Raleway'",
     "body-background": "#ffffff",
     "body-color": "#333333",
     "body-color-second": "#fff",
@@ -46,9 +46,9 @@
   },
   "presets":{
     "Original":{
-      "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Linden+Hill|Open+Sans:400,700' rel='stylesheet' type='text/css'>",
+      "google-fonts-link": "<link href='http://fonts.googleapis.com/css?family=Great+Vibes|Raleway:400,700' rel='stylesheet' type='text/css'>",
       "header-font": "'Great vibes'",
-      "body-font": "'Raleway', sans-serif",
+      "body-font": "'Raleway'",
       "body-background": "#ffffff",
       "body-color": "#333333",
       "accent-color": "#ffa42e",
