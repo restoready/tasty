@@ -4,7 +4,7 @@
       <a href="#image-{{ i }}" class="photo__link">
         <span class="photo__caption">{{ photo.caption }}</span>
       </a>
-      <img src="{{ photo.image | custom_image_url: '440x315#' }}" alt="{{ photo.caption }}">
+      <img src="{{ photo.image | custom_image_url: '600x350#' }}" alt="{{ photo.caption }}">
       <div class="lb-overlay" id="image-{{ i }}">
         <img src="{{ photo.image | large_image_url }}" alt="{{ photo.caption }}" />
         <div>
