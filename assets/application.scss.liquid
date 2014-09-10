@@ -81,7 +81,7 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 
 
 /* Width variables */
-$siteWidth: 100%;
+$siteWidth: 75%;
 $gutter: 24px;
 $gridGutter: 24px; // can be a %, but nested grids will have smaller margins because of it
 
@@ -622,7 +622,7 @@ $class-type: unquote(".");
 // ==============================================================================
 .wrapper {
   @include clearfix();
-  max-width: $siteWidth;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 $gutter;
 }
@@ -951,29 +951,31 @@ a {
 .navigation {
   text-align: center;
 }
-.main-nav__item a {
-  color: $nav-link-color;
-}
-.main-sub-nav__items {
-  padding: 0;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  margin: 0;
-  position: absolute;
-  left: 0;
-}
-.main-sub-nav__item {
-  display: block;
-}
-.main-sub-nav__link{
-  @extend .main-nav__link;
-}
-.main-nav__item:hover .main-sub-nav__items {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
+  .main-nav__item a {
+    color: $nav-link-color;
+  }
+  .main-sub-nav__items {
+    padding: 0;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    margin: 0;
+    position: absolute;
+    z-index: 9999;
+  }
+    .main-sub-nav__item {
+      display: block;
+      text-align: left;
+    }
+    .main-sub-nav__link{
+      @extend .main-nav__link;
+    }
+  .main-nav__item:hover .main-sub-nav__items {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    background-color: $accent-color;
+  }
 .main-content {
   margin-bottom: 1em;
 }
@@ -2034,23 +2036,28 @@ x:-o-prefocus, .lb-overlay img {
     font-size: 125%;
   }
 
+  .wrapper {
+    max-width: 75%;
+  }
+
   .main-nav__items-left {
     margin: 0;
     display: inline-block;
     vertical-align: middle;
+    max-width: 35%;
   }
   .main-nav__items-right {
     margin: 0;
     display: inline-block;
     vertical-align: middle;
+    max-width: 35%;
   }
     .main-nav__item {
-      @include transition(border .25s);
+      @include transition(background-color .25s);
       display: inline-block;
       font-size: 1rem;
-      border-bottom: 4px solid white;
       &:hover {
-          border-bottom: 4px solid $accent-color;
+          background-color: $accent-color;
       }
     }
     .main-nav__item--current {

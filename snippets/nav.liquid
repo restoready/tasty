@@ -1,13 +1,24 @@
 <div class="wrapper">
   <div class="navigation">
+    {% assign nbrItems = linklists.navigation-primaire.links.size | divided_by:2 | plus:1 %}
     <ul class="main-nav__items-left medium-down--hide">
-      <li class="main-nav__item {{ localized_root_path | current_path: 'class:main-nav__item--current' }}">
-        <a class="main-nav__link" href="{{ localized_root_path }}">{{ "Accueil" | t }}</a>
-      </li>
-      {% for menu in menus %}
-        <li class="main-nav__item {{ menu.url | current_path: 'class:main-nav__item--current' }}">
-          <a class="main-nav__link" href="{{ menu.url }}">{{ menu.name }}</a>
-        </li>
+      {% for link in linklists.navigation-primaire.links limit:nbrItems offset:0 %}
+        {% if link.linklist_handle == "" %}
+          <li class="main-nav__item {{ link.url | current_path: 'class:main-nav__item--current' }}">
+            <a class="main-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% else %}
+          <li class="main-nav__item {{ link.url | current_path: 'class:main-nav__item--current' }}">
+            <a class="main-nav__link" href="{{ link.url }}">{{ link.title }} </a>
+            <ul class="main-sub-nav__items">
+              {% for l in linklists[link.linklist_handle].links %}
+              <li class="main-sub-nav__item">
+                <a class="main-sub-nav__link" href="{{ l.url }}">{{ l.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
     <div class="logo">
@@ -22,23 +33,24 @@
       {% endif %}
     </div>
     <ul class="main-nav__items-right medium-down--hide">
-      <li class="main-nav__item {{ restaurant.url | current_path: 'class:main-nav__item--current' }}">
-        <a class="main-nav__link" href="{{ restaurant.url }}">{{ "Le restaurant" | t }}</a>
-      </li>
-      <li class="main-nav__item {{ restaurant.newsletter_path | current_path: "class:main-nav__item--current" }}">
-        {{ "Newsletter" | newsletter_subscribe_url: 'class:main-nav__link' }}
-      </li>
-      {% if theme_settings.display_contact_form %}
-        <li class="main-nav__item {{ restaurant.contact_path | current_path: 'class:main-nav__item--current' }}">
-          <a class="main-nav__link" href="{{ restaurant.contact_path }}">
-            {% if contact_settings.navigation_label? %}
-              {{ contact_settings.navigation_label }}
-            {% else %}
-              {{ contact_settings.contact_title }}
-            {% endif %}
-          </a>
-        </li>
-      {% endif %}
+      {% for link in linklists.navigation-primaire.links offset:nbrItems %}
+        {% if link.linklist_handle == "" %}
+          <li class="main-nav__item {{ link.url | current_path: 'class:main-nav__item--current' }}">
+            <a class="main-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% else %}
+          <li class="main-nav__item {{ link.url | current_path: 'class:main-nav__item--current' }}">
+            <a class="main-nav__link" href="{{ link.url }}">{{ link.title }} </a>
+            <ul class="main-sub-nav__items">
+              {% for l in linklists[link.linklist_handle].links %}
+              <li class="main-sub-nav__item">
+                <a class="main-sub-nav__link" href="{{ l.url }}">{{ l.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
+      {% endfor %}
       {% if localized_page_paths.size > 0 %}
         {% for path in localized_page_paths %}
           <li class="main-nav__language">
@@ -47,25 +59,22 @@
         {% endfor %}
       {% endif %}
     </ul>
-
     <div class="large--hide">
     <form action="select-nav">
       <select class="select-nav" name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
-        <option value="{{ localized_root_path }}" {% if current_path == localized_root_path %}selected{%endif%}>{{ "Accueil" | t }}</option>
-        {% for menu in menus %}
-          <option value="{{ menu.url }}" {% if current_path == menu.url %}selected{%endif%}>{{ menu.name }}</option>
+        {% for link in linklists.navigation-primaire.links %}
+          {% if link.linklist_handle == "" %}
+            <option value="{{ link.url }}" {% if current_path == link.url %}selected{%endif%}>{{ link.title }}</option>
+          {% else %}
+             <option value="{{ link.url }}" {% if current_path == link.url %}selected{%endif%}>{{ link.title }}</option>
+              <ul class="main-sub-nav__items">
+                {% for l in linklists[link.linklist_handle].links %}
+                  <option value="{{ l.url }}" {% if current_path == l.url %}selected{%endif%}>-- {{ l.title }}</option>
+                {% endfor %}
+              </ul>
+          {% endif %}
         {% endfor %}
-        <option value="{{ restaurant.url }}" {% if current_path == restaurant.url %}selected{%endif%}>{{ "Le restaurant" | t }}</option>
-        <option value="{{ newsletter_subscribe_form.new_url }}" {% if current_path == newsletter_subscribe_form.new_url %}selected{%endif%}>{{ "Newsletter" | t }}</option>
-        {% if theme_settings.display_contact_form %}
-          <option value="{{ restaurant.contact_path }}" {% if current_path == restaurant.contact_path %}selected{%endif%}>
-              {% if contact_settings.navigation_label? %}
-                {{ contact_settings.navigation_label }}
-              {% else %}
-                {{ contact_settings.contact_title }}
-              {% endif %}
-          </option>
-        {% endif %}
+
         {% if localized_page_paths.size > 0 %}
           {% for path in localized_page_paths %}
             <option value="{{ path.url }}">
