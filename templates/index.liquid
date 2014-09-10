@@ -21,7 +21,8 @@
   </div>
 </section>
 
-<div class="menus-featured-home">
+{% if home_foods.size > 0 or home_menus.size > 0 %}
+<div class="wrapper">
   <ul class="block-grid">
     {% if home_menus.size > 0 %}
       {% for menu in home_menus %}
@@ -42,7 +43,7 @@
                 {% else %}
                   <a href="{{ menu.url }}" class="post-find-more">
                 {% endif %}
-                <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+                <span>{{ "En savoir +" | t }}</span>
                 </a>
               </div>
             </div>
@@ -64,16 +65,16 @@
     {% if home_foods.size > 0 %}
       {% for food in home_foods %}
         <li class="menus__item--home">
-          {% assign assotiated_menu = food.menu %}
+          {% assign relative_menu = food.menu %}
           <h1 class="menu__title--home">
-            <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}">{{ food.name }}</a>
+            <a href="{% if relative_menu.parent? %}{{ relative_menu.root_parent.url }}#menu-{{relative_menu.id}}{% else %}{{ relative_menu.url }}{% endif %}">{{ food.name }}</a>
           </h1>
           <div class="post-thumbnail">
             <div class="post-thumbnail-wrapper">
               <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
               <div class="menu__link-home">
-                <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="post-find-more">
-                <span><div class="divider up"></div>{{ "En savoir +" | t }}<div class="divider down"></div></span>
+                <a href="{% if relative_menu.parent? %}{{ relative_menu.root_parent.url }}#menu-{{relative_menu.id}}{% else %}{{ relative_menu.url }}{% endif %}" class="post-find-more">
+                <span>{{ "En savoir +" | t }}</span>
                 </a>
               </div>
             </div>
@@ -83,7 +84,7 @@
               <p>{{ food.summary }}</p>
             </div>
           {% endif %}
-          <a href="{% if assotiated_menu.parent? %}{{ assotiated_menu.root_parent.url }}#menu-{{assotiated_menu.id}}{% else %}{{ assotiated_menu.url }}{% endif %}" class="link-view-menu">{{ "Voir le plat" | t }}</a>
+          <a href="{% if relative_menu.parent? %}{{ relative_menu.root_parent.url }}#menu-{{relative_menu.id}}{% else %}{{ relative_menu.url }}{% endif %}" class="link-view-menu">{{ "Voir le plat" | t }}</a>
         </li>
       {% endfor %}
     {% endif %}
@@ -93,6 +94,7 @@
     <span>{{ "Voir toute la carte" | t }}</span>
   </a>
 </div>
+{% endif %}
 
 <section class="parallax-section">
   <div class="parallax-section-wrapper">
@@ -110,78 +112,72 @@
   </div>
 </section>
 
-<div class="grid">
-  <section class="opening-hours">
-    <header class="section__header">
-      <h2 class="section__title">{{ "Horaires" | t }}</h2>
-    </header>
-    <main>
-      <dl>
-        {% for day in opening_hours %}
-          <dt>
-            {{ day.name }}
-          </dt>
-          <dd>
-            {{ day.shifts }}
-          </dd>
-        {% endfor %}
-      </dl>
-      {% if restaurant.opening_hours_information? %}
-        <div>
-          <p>{{ restaurant.opening_hours_information }}</p>
+<section class="opening-hours">
+  <header class="section__header">
+    <h2 class="section__title">{{ "Horaires" | t }}</h2>
+  </header>
+  <main>
+    <dl>
+      {% for day in opening_hours %}
+        <dt>
+          {{ day.name }}
+        </dt>
+        <dd>
+          {{ day.shifts }}
+        </dd>
+      {% endfor %}
+    </dl>
+    {% if restaurant.opening_hours_information? %}
+      <div>
+        <p>{{ restaurant.opening_hours_information }}</p>
+      </div>
+    {% endif %}
+  </main>
+</section>
+
+<section class="directions">
+  <main class="section__main">
+    <div class="map contact_map">
+      {% if theme_settings.google_map_type == "embed" %}
+        {% google_map_embed: "size:100%x380" %}
+      {% elsif theme_settings.google_map_type == "image" %}
+        <a href="{% google_map_url %}">
+          <img src="{% google_map_image_url: "size:640x260" %}" class="map__image">
+        </a>
+      {% endif %}
+    </div>
+    <div class="wrapp-see-location">
+      <header class="section__header">
+        <h2>{{ "Localisation" | t }}</h2>
+      </header>
+      <h1 class="localisation-title">{{ restaurant.name }}</h1>
+      {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+        <div class="address">
+          {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
+            <div>
+              <p>
+                {% if restaurant.street_address? %}
+                  {{ restaurant.street_address }}
+                  <br />
+                {% endif %}
+                {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
+                {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
+              </p>
+            </div>
+          {% endif %}
         </div>
       {% endif %}
-    </main>
-  </section>
-
-  <section class="directions">
-    <main class="section__main">
-      <div class="map contact_map">
-        {% if theme_settings.google_map_type != "" %}
-          <div>
-            {% if theme_settings.google_map_type == "embed" %}
-              {% google_map_embed: "size:100%x520" %}
-            {% elsif theme_settings.google_map_type == "image" %}
-              <a href="{% google_map_url %}">
-                <img src="{% google_map_image_url: "size:640x260" %}" />
-              </a>
-            {% endif %}
-          </div>
-        {% endif %}
-      </div>
-      <div class="wrapp-see-location">
-        <header class="section__header">
-          <h2>{{ "Localisation" | t }}</h2>
-        </header>
-        <h1 class="localisation-title">{{ restaurant.name }}</h1>
-        {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-          <div class="address">
-            {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
-              <div>
-                <p>
-                  {% if restaurant.street_address? %}
-                    {{ restaurant.street_address }}
-                    <br />
-                  {% endif %}
-                  {% if restaurant.zip_code? %} {{ restaurant.zip_code }} {% endif %}
-                  {% if restaurant.city? %} <strong>{{ restaurant.city }}</strong> {% endif %}
-                </p>
-              </div>
-            {% endif %}
-          </div>
-        {% endif %}
-        <footer class="section__footer">
-          <a class="button button-black btn-see-location" href="{% google_map_url %}">
+      <footer class="section__footer">
+        <a class="button button-black btn-see-location" href="{% google_map_url %}">
           {{ "Voir l'itinéraire" | t }}
-          </a>
-        </footer>
-      </div>
-    </main>
-    <script>
-      jQuery(".btn-see-location").click(function (e) {
-        e.preventDefault();
-        jQuery(this).parents(".wrapp-see-location").fadeOut("slow");
-      });
-    </script>
-  </section>
-</div>
+        </a>
+      </footer>
+    </div>
+  </main>
+  <script>
+    jQuery(".btn-see-location").click(function (e) {
+      e.preventDefault();
+      jQuery(this).parents(".wrapp-see-location").fadeOut("slow");
+    });
+  </script>
+</section>

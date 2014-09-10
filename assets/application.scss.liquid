@@ -81,7 +81,7 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 
 
 /* Width variables */
-$siteWidth: 75%;
+$siteWidth: 960px;
 $gutter: 24px;
 $gridGutter: 24px; // can be a %, but nested grids will have smaller margins because of it
 
@@ -951,31 +951,35 @@ a {
 .navigation {
   text-align: center;
 }
-  .main-nav__item a {
-    color: $nav-link-color;
-  }
-  .main-sub-nav__items {
-    padding: 0;
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    margin: 0;
-    position: absolute;
-    z-index: 9999;
-  }
-    .main-sub-nav__item {
-      display: block;
-      text-align: left;
-    }
-    .main-sub-nav__link{
-      @extend .main-nav__link;
-    }
-  .main-nav__item:hover .main-sub-nav__items {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    background-color: $accent-color;
-  }
+.main-nav__item {
+  position: relative;
+}
+.main-nav__item a {
+  color: $nav-link-color;
+}
+.main-sub-nav__items {
+  background-color: $body-background;
+  padding: 0;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+}
+.main-sub-nav__item {
+  display: block;
+  text-align: left;
+}
+.main-sub-nav__link{
+  @extend .main-nav__link;
+}
+.main-nav__item:hover .main-sub-nav__items {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
 .main-content {
   margin-bottom: 1em;
 }
@@ -1052,11 +1056,11 @@ a {
 .textarea {
   margin: 0 0 1em;
   input {
-    border: 3px solid $border-form;
+    border: 1px solid $border-form;
   }
 }
 .textarea-contact {
-  border: 3px solid $border-form;
+  border: 1px solid $border-form;
 }
 
 // Messages
@@ -1135,12 +1139,13 @@ a {
     margin-top: 2rem;
   }
   .menu__title--home {
-    font-family: $headerFontStack;
-    font-size: 34px !important;
+    font-family: $bodyFontStack;
+    font-size: 28px !important;
     text-transform: none !important;
   }
   .post-thumbnail {
     position: relative;
+    margin: 1rem 0;
   }
   .post-thumbnail-wrapper {
     position: relative;
@@ -1160,7 +1165,7 @@ a {
     border-radius: 50%;
     background-color: none;
     opacity: 0.8;
-    @include transition(background-color .35s);
+    @include transition(background-color .15s);
     &:hover {
       background-color: $body-color;
     }
@@ -1282,11 +1287,14 @@ a {
     margin-bottom: 0.5rem;
   }
   dt {
+    font-size: 14px;
     font-weight: 700;
-    font-size: 100%;
+    text-transform: uppercase;
   }
   dd {
     font-size: 100%;
+    margin-bottom: 12px;
+    line-height: 1.2;
   }
 }
   .opening-days {
@@ -1308,6 +1316,9 @@ a {
     margin-bottom: 1em;
   }
 
+.directions {
+  min-height: 280px;
+}
 .directions, .business-view {
   margin-bottom: 1em;
   text-align: center;
@@ -1315,20 +1326,17 @@ a {
 }
 .localisation-title {
   font-family: $headerFontStack;
-  font-size: 4rem;
+  font-size: 3rem;
 }
   .wrapp-see-location {
-    padding-top: 7%;
     background: $accent-color;
     background-color: transparentize($accent-color, 0.3);
-    position: relative;
-    height: 522px;
     position: absolute;
     top: 0;
+    bottom: 0;
     width: 100%;
-    .section__header {
-      margin-top: 100px;
-    }
+    min-height: 280px;
+    padding: 30px 0;
     h2 {
       font-family: $bodyFontStack;
       font-size: 100%;
@@ -1336,6 +1344,10 @@ a {
   }
     .map__image {
       @extend .auto;
+    }
+    .map__image,
+    .map iframe {
+      vertical-align: middle;
     }
   .address {
     color: black;
@@ -1455,6 +1467,7 @@ a {
     .food__summary {
       font-size: 1em;
       color: black;
+      margin-bottom: .5em;
     }
     .foot-prices {
 
@@ -1469,22 +1482,15 @@ a {
 }
 
 .prices {
-  @extend .clearfix;
   margin-bottom: 1em;
+  text-align: right;
 }
   .price__label {
-    clear: left;
     color: $price-label-color;
-    float: left;
-    width: 66%;
   }
   .price__value {
     color: $price-value-color;
-    float: right;
     font-weight: 700;
-    text-align: right;
-    width: 33%;
-    padding-right: .5em;
   }
 
 
@@ -1549,11 +1555,6 @@ a {
 .restaurant-city {
   font-family: $bodyFontStack;
   font-size: 100%;
-  p {
-    display: inline;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-  }
 }
 .restaurant-gallery {
   margin-bottom: 2rem;
@@ -1577,10 +1578,10 @@ a {
       color: white;
     }
     .photo__link {
-      @include transition(background-color .5s);
-      background-color: rgba(0, 0, 0, 0.5);
+      @include transition(background-color .25s);
+      background-color: rgba(0, 0, 0, 0.65);
       font-weight: 700;
-      line-height: 200px;
+      line-height: 170px;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -2007,10 +2008,6 @@ x:-o-prefocus, .lb-overlay img {
     margin-bottom: $gutter / 2;
     margin-right: $gutter / 2;
   }
-  .food {
-    max-width: 80%;
-    margin: 0 auto;
-  }
   // newsletter page
     .page-header--newsletter,
     .page-header--contact {
@@ -2025,6 +2022,13 @@ x:-o-prefocus, .lb-overlay img {
     .bx-wrapper .bx-controls-direction a {
       margin-top: 8px;
     }
+
+  .directions, .wrapp-see-location {
+    min-height: 310px;
+  }
+  .localisation-title {
+    font-size: 4rem;
+  }
 }
 
 // Large
@@ -2097,17 +2101,10 @@ x:-o-prefocus, .lb-overlay img {
     }
   }
 
-  .menu__title--home {
-    font-size: 38px !important;
-  }
-  .wrapp-see-location {
-    .section__header {
-      margin-top: 0;
-    }
-  }
   .food {
-    max-width: 50%;
+    margin: 0 10rem;
   }
+
   .restaurant-slogan {
     font-size: 4rem;
   }
@@ -2115,10 +2112,6 @@ x:-o-prefocus, .lb-overlay img {
     .newsletter-form,
     .page-header--newsletter, {
       width: 50%;
-    }
-    .page-header--contact,
-    .form-contact {
-      max-width: 1000px;
     }
     .input--name,
     .input--mail {
@@ -2148,5 +2141,9 @@ x:-o-prefocus, .lb-overlay img {
   .lb-overlay:target {
     width: auto;
     padding: 80px 100px 120px 100px;
+  }
+
+  .wrapp-see-location {
+    padding: 45px 0;
   }
 }
