@@ -12,7 +12,7 @@
             <a class="main-nav__link" href="{{ link.url }}">{{ link.title }} </a>
             <ul class="main-sub-nav__items">
               {% for l in linklists[link.linklist_handle].links %}
-              <li class="main-sub-nav__item">
+              <li class="main-sub-nav__item {{ l.url | current_path: 'class:main-sub-nav__item--current' }}">
                 <a class="main-sub-nav__link" href="{{ l.url }}">{{ l.title }}</a>
               </li>
               {% endfor %}
@@ -53,37 +53,37 @@
       {% endfor %}
       {% if localized_page_paths.size > 0 %}
         {% for path in localized_page_paths %}
-          <li class="main-nav__language">
+          <li class="main-nav__item main-nav__item--language">
             <a class="main-nav__link" href="{{ path.url }}">{{ path.locale_name }}</a>
           </li>
         {% endfor %}
       {% endif %}
     </ul>
     <div class="large--hide">
-    <form action="select-nav">
-      <select class="select-nav" name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
-        {% for link in linklists.navigation-primaire.links %}
-          {% if link.linklist_handle == "" %}
-            <option value="{{ link.url }}" {% if current_path == link.url %}selected{%endif%}>{{ link.title }}</option>
-          {% else %}
-             <option value="{{ link.url }}" {% if current_path == link.url %}selected{%endif%}>{{ link.title }}</option>
-              <ul class="main-sub-nav__items">
-                {% for l in linklists[link.linklist_handle].links %}
-                  <option value="{{ l.url }}" {% if current_path == l.url %}selected{%endif%}>-- {{ l.title }}</option>
-                {% endfor %}
-              </ul>
-          {% endif %}
-        {% endfor %}
-
-        {% if localized_page_paths.size > 0 %}
-          {% for path in localized_page_paths %}
-            <option value="{{ path.url }}">
-              {{ path.locale_name }}
-            </option>
+      <form action="select-nav">
+        <select class="select-nav select-nav--header" name="navigation" onChange="location = this.options[this.selectedIndex].value;">
+          {% for link in linklists.navigation-primaire.links %}
+            {% if link.linklist_handle == "" %}
+              <option value="{{ link.url }}" {% if current_paths contains link.url %}selected{%endif%}>{{ link.title }}</option>
+            {% else %}
+               <option value="{{ link.url }}" {% if current_paths contains link.url %}selected{%endif%}>{{ link.title }}</option>
+                <ul class="main-sub-nav__items">
+                  {% for l in linklists[link.linklist_handle].links %}
+                    <option value="{{ l.url }}" {% if current_paths contains l.url %}selected{%endif%}>-- {{ l.title }}</option>
+                  {% endfor %}
+                </ul>
+            {% endif %}
           {% endfor %}
-        {% endif %}
-      </select>
-    </form>
+
+          {% if localized_page_paths.size > 0 %}
+            {% for path in localized_page_paths %}
+              <option value="{{ path.url }}">
+                {{ path.locale_name }}
+              </option>
+            {% endfor %}
+          {% endif %}
+        </select>
+      </form>
     </div>
   </div>
 </div>

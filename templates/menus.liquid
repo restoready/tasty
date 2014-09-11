@@ -15,12 +15,17 @@
         <ol class="menus__children">
           {% for child in menu.children %}
             <li class="menus__child">
-              {% if child.main_image? %}
-                <div class="menus-thumbnail menus-thumbnail--all">
-                  {{ child.main_image | custom_image_url: "175x175#" | image_tag }}
-                </div>
-              {% endif %}
-              <a class="menus__child-link" href="{{ menu.url }}#menu-{{child.id}}">{{ child.name }}</a>
+              <a class="menus__child-link" href="{{ menu.url }}#menu-{{child.id}}">
+                {% if child.main_image? %}
+                  <div class="menus-thumbnail menus-thumbnail--all">
+                    {{ child.main_image | custom_image_url: "175x175#" | image_tag }}
+                    <div class="menus-thumbnail__legend">
+                      <span>{{ "Voir le menu" | t }}</span>
+                    </div>
+                  </div>
+                {% endif %}
+                {{ child.name }}
+              </a>
             </li>
           {% endfor %}
         </ol>

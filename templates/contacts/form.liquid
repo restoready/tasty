@@ -1,16 +1,16 @@
-<section class="page-header--contact grid wrapper">
-  <div class="grid-item">
+<section class="page-header page-header--contact">
+  <div class="wrapper">
     <header class="section__header page-header__header">
-      <h1 class="section__title page-header__title">{{ contact_settings.contact_title }}</h1>
+      <h1>{{ contact_settings.contact_title | t }}</h1>
     </header>
     <main class="section__main page-header__description">
-      {{ contact_settings.contact_content }}
+      <p>{{ contact_settings.contact_content }}</p>
     </main>
   </div>
 </section>
 
-<section class="form-contact grid wrapper">
-  <div class="grid-item large--one-half">
+<div class="wrapper">
+  <section class="form-contact">
     {% contact_form %}
       <fieldset class="field-group">
         <legend class="field-group__legend">{{ "Vos coordonnées" | t }}</legend>
@@ -31,8 +31,8 @@
         </div>
       </fieldset>
     {% endcontact_form %}
-  </div>
-  <div class="grid-item large--one-half contact-informations wrapper">
+  </section>
+  <aside class="contact-informations">
     {% if restaurant.street_address? || restaurant.zip_code? || restaurant.city? %}
       <div class="adress-contact-wrapper">
         <h3 class="adress-contact">{{ "Adresse :" | t }}</h3>
@@ -52,5 +52,5 @@
         <p>{{ restaurant.phone }}</p>
       </div>
     {% endif %}
-  </div>
-</section>
+  </aside>
+</div>

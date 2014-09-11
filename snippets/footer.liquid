@@ -31,22 +31,20 @@
   
   <div class="large--hide">
     <form action="select-nav">
-      <select class="select-nav" name="navigation" id="navigation-mobile" onChange="location = this.options[this.selectedIndex].value;">
-        <option value="{{ localized_root_path }}">{{ "Accueil" | t }}</option>
-        {% for menu in menus %}
-          <option value="{{ menu.url }}">{{ menu.name }}</option>
+      <select class="select-nav select-nav--header" name="navigation" onChange="location = this.options[this.selectedIndex].value;">
+        {% for link in linklists.navigation-primaire.links %}
+          {% if link.linklist_handle == "" %}
+            <option value="{{ link.url }}" {% if current_paths contains link.url %}selected{%endif%}>{{ link.title }}</option>
+          {% else %}
+             <option value="{{ link.url }}" {% if current_paths contains link.url %}selected{%endif%}>{{ link.title }}</option>
+              <ul class="main-sub-nav__items">
+                {% for l in linklists[link.linklist_handle].links %}
+                  <option value="{{ l.url }}" {% if current_paths contains l.url %}selected{%endif%}>-- {{ l.title }}</option>
+                {% endfor %}
+              </ul>
+          {% endif %}
         {% endfor %}
-        <option value="{{ restaurant.url }}">{{ "Le restaurant" | t }}</option>
-        <option value="Newsletter">{{ "Newsletter" | newsletter_subscribe_url }}</option>
-        {% if theme_settings.display_contact_form %}
-          <option value="{{ restaurant.contact_path }}">
-              {% if contact_settings.navigation_label? %}
-                {{ contact_settings.navigation_label }}
-              {% else %}
-                {{ contact_settings.contact_title }}
-              {% endif %}
-          </option>
-        {% endif %}
+
         {% if localized_page_paths.size > 0 %}
           {% for path in localized_page_paths %}
             <option value="{{ path.url }}">
