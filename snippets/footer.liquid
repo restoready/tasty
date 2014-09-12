@@ -44,7 +44,7 @@
               </ul>
           {% endif %}
         {% endfor %}
-
+        <option value="{{ newsletter_subscribe_form.new_url }}" {% if current_paths contains newsletter_subscribe_form.new_url %}selected{%endif%}>{{ "Newsletter" | t }}</option>
         {% if localized_page_paths.size > 0 %}
           {% for path in localized_page_paths %}
             <option value="{{ path.url }}">

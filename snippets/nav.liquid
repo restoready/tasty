@@ -51,6 +51,9 @@
           </li>
         {% endif %}
       {% endfor %}
+      <li class="main-nav__item {{ newsletter_subscribe_form.url | current_path:  'class:main-nav__item--current' }}">
+        {{ "Newsletter" | newsletter_subscribe_url: 'class:main-nav__link' }}
+      </li>
       {% if localized_page_paths.size > 0 %}
         {% for path in localized_page_paths %}
           <li class="main-nav__item main-nav__item--language">
@@ -74,7 +77,7 @@
                 </ul>
             {% endif %}
           {% endfor %}
-
+          <option value="{{ newsletter_subscribe_form.new_url }}" {% if current_paths contains newsletter_subscribe_form.new_url %}selected{%endif%}>{{ "Newsletter" | t }}</option>
           {% if localized_page_paths.size > 0 %}
             {% for path in localized_page_paths %}
               <option value="{{ path.url }}">
