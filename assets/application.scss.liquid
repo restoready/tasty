@@ -981,9 +981,12 @@ a {
     font-size: 1.2em;
   }
 
+//menus
+
 .menu {
   padding-bottom: 1.5em;
 }
+
   .menu__image-container {
     margin-bottom: 1em;
   }
@@ -996,6 +999,11 @@ a {
       text-align: center;
       font-family: $bodyFontStack;
     }
+    .menu--featured {
+      .icon-star {
+        color: $featured-star-color;
+      }
+    }
   .menu__description {
     color: black;
     font-size: 1.2em;
@@ -1007,6 +1015,7 @@ a {
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 1rem;
   }
   .back-menu-slider .back-menu-slider-content {
     background: #000000;
@@ -1039,6 +1048,9 @@ a {
       }
     }
   } 
+  .page-header__description--menus {
+    text-align:  center;
+  }
 
 .section_title--allMenus {
   text-align: center;
@@ -1802,7 +1814,7 @@ x:-o-prefocus, .lb-overlay img {
 
   .restaurant-slogan {
     font-size: 4rem;
-  }
+  }   
   .gallery__item {
     width: 30%;
     margin: 1%;

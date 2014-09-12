@@ -18,9 +18,11 @@
       </div>
     </div>
     {% if menu.summary? %}
-      <main class="section__main page-header__description">
-        {{ menu.summary }}
-      </main>
+      <div class="wrapper">
+        <main class="section__main page-header__description page-header__description--menus">
+          {{ menu.summary }}
+        </main>
+      </div>
     {% endif %}
 </section>
 
