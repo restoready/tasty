@@ -1,3 +1,40 @@
+/*
+* Tasty 1.0
+* RestoReady v1.0
+* Copyright 2014 MH Communication.
+* Author MH Communication @MHCommunication
+* Built with Sass - http://sass-lang.com/
+
+* Some things to know about this file:
+    - Sass is compiled on RestoReady's server so you don't need to convert it to CSS yourself
+    - The output CSS is compressed and comments are removed
+    - You cannot use @imports in this file
+    - Helpers variables, mixins, and starter classes are provided. Change as needed.
+    - The file is prepped with a CSS reset
+*/
+/* Table of Contents
+==================================================
+  Colors settings
+  Box Model
+  Breakpoint and Grid Variables
+  General Variables
+  Sass Mixins
+  Dependency-free breakpoint mixin
+  Reset
+  Grid Setup
+  Basic Styles
+  Helper classes
+  Typography
+  Lists
+  Images and Iframes
+  Forms
+  Links and buttons
+  Layout
+  Modules
+  Icomoon Font
+  Breakpoints
+================================================== */
+
 // ==============================================================================
 // #Colors
 // ==============================================================================
@@ -26,7 +63,10 @@ $label-vegetarian-background: {{ theme_settings.label-vegetarian-background }};
 $label-vegetarian-color: {{ theme_settings.label-vegetarian-color }};
 $label-new-background: {{ theme_settings.label-new-background }};
 $label-new-color: {{ theme_settings.label-new-color }};
-
+$label-no-pork-background: {{ theme_settings.label-no-pork-background }};
+$label-no-pork-color: {{ theme_settings.label-no-pork-color }};
+$label-no-meat-background: {{ theme_settings.label-no-meat-background }};
+$label-no-meat-color: {{ theme_settings.label-no-meat-color }};
 
 // Featured menus
 $featured-menus-background:   {{ theme_settings.featured-menus-background }};
@@ -204,10 +244,6 @@ $class-type: unquote(".");
   }
 }
 
-
-
-
-
 /*------------------------------------*\
   $HELPERS
 \*------------------------------------*/
@@ -228,7 +264,6 @@ $class-type: unquote(".");
 
 }
 
-
 /* Our regular, non-responsive width and helper classes. */
 @include device-helper();
 
@@ -243,7 +278,6 @@ $class-type: unquote(".");
 
 }
 
-
 // ==============================================================================
 // #Basic Styles
 // ==============================================================================
@@ -253,7 +287,6 @@ $class-type: unquote(".");
   margin: 0 auto;
   padding: 0 $gutter;
 }
-
 
 // ==============================================================================
 // #Helper Classes
@@ -278,7 +311,6 @@ $class-type: unquote(".");
   display: table-cell;
   vertical-align: middle;
 }
-
 
 // ==============================================================================
 // #Typography
@@ -327,7 +359,6 @@ sup {
   font-size: 60%;
 }
 
-
 // ==============================================================================
 // #Lists
 // ==============================================================================
@@ -344,7 +375,6 @@ li { margin-bottom: 0.25em; }
   margin-bottom: 0;
 }
 
-
 // ==============================================================================
 // #Images and Iframes
 // ==============================================================================
@@ -358,7 +388,6 @@ img.auto,
 img.circle {
   border-radius: 50%;
 }
-
 
 // ==============================================================================
 // #Forms
@@ -447,7 +476,6 @@ form.form-horizontal,
   }
 }
 
-
 // ==============================================================================
 // #Links and Buttons
 // ==============================================================================
@@ -523,7 +551,6 @@ form.form-horizontal,
       color: $accent-color;
     }
 }
-
 
 // ==============================================================================
 // #Layout
@@ -1197,6 +1224,14 @@ a {
     .tag--new {
       background-color: $label-new-background;
       color: $label-new-color;
+    }
+    .tag--no-pork {
+      background-color: $label-no-pork-background;
+      color: $label-no-pork-color;
+    }
+    .tag--no-meat {
+      background-color: $label-no-meat-background;
+      color: $label-no-meat-color;
     }
 
 // Gallery
