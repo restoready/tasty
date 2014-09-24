@@ -3,7 +3,7 @@
     {% assign nbrItems = linklists.navigation-primaire.links.size | divided_by:2 | plus:1 %}
     <ul class="main-nav__items-left medium-down--hide">
       {% for link in linklists.navigation-primaire.links limit:nbrItems offset:0 %}
-        {% if link.linklist_handle == "" %}
+        {% if link.linklist_handle == "" or link.linklist_handle == null %}
           <li class="main-nav__item {{ link.url | current_path: 'class:main-nav__item--current' }}">
             <a class="main-nav__link" href="{{ link.url }}">{{ link.title }}</a>
           </li>
