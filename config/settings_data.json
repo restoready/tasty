@@ -35,6 +35,10 @@
     "featured-foods-border-color": "#747474",
     "label-form": "#000",
     "border-form": "#000",
+
+    "button_header_home_text": "Découvrez nos menus",
+    "button_header_home_link": "menus",
+
     "google_business_view_url": "",
     "display_google_business_view_url": false,
     "google_business_view_embed": "",
@@ -85,6 +89,9 @@
 
       "label-form": "#000",
       "border-form": "#000",
+
+      "button_header_home_text": "Découvrez nos menus",
+      "button_header_home_link": "menus",
 
       "google_business_view_url": "",
       "display_google_business_view_url": false,

@@ -14,8 +14,8 @@
       <h5 class="slider-subtitle">{{ restaurant.slogan }}</h5>
     </div>
     <div>
-      <a href="{{ restaurant.menus_path }}" class="button button-white">
-        <span>{{ "Découvrez nos menus" | t }}</span>
+      <a href="{{ localized_root_path }}/{{ theme_settings.button_header_home_link }}" class="button button-white">
+        <span>{{ theme_settings.button_header_home_text | t }}</span>
       </a>
     </div>
   </div>
@@ -101,7 +101,7 @@
     <h3 class="title-before">{{ "À propos" | t }}</h3>
     {% if restaurant.slogan? %}
       <h1 class="title">{{ restaurant.slogan }}</h1>
-    {% endif %}  
+    {% endif %}
     {% if restaurant.summary? %}
       <div class="text">{{ restaurant.summary }}<br>
         <a href="{{ restaurant.url }}" class="button button-orange" target="_self">
