@@ -1,5 +1,10 @@
 <section class="slider">
-  {% if slides.size > 0 %}
+  {% if slides.size == 1 %}
+    {% for slide in slides %}
+      <img src="{{ slide.image | custom_image_url: '1920x640#' }}"/>
+    {% endfor %}
+  {% endif %}
+  {% if slides.size > 1 %}
     <ul class="bxslider">
       {% for slide in slides %}
         <li>
