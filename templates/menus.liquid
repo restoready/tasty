@@ -16,7 +16,7 @@
       <main class="section__main">
         <ol class="menus__children">
           {% for child in menu.children %}
-            <li class="menus__child">
+            <li class="menus__child {% if menu.children.size == 1 %}submenu-full-width{% endif %}{% if menu.children.size == 2 %}submenu-half-width{% endif %}">
               <a class="menus__child-link" href="{{ menu.url }}#menu-{{child.id}}">
                 {% if child.main_image? %}
                   <div class="menus-thumbnail menus-thumbnail--all">
