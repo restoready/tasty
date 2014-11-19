@@ -25,6 +25,12 @@
                       <span>{{ "Voir le menu" | t }}</span>
                     </div>
                   </div>
+                {% else %}
+                  <div class="menus-thumbnail menus-thumbnail--all">
+                    <div class="menus-thumbnail__legend">
+                      <span>{{ "Voir le menu" | t }}</span>
+                    </div>
+                  </div>
                 {% endif %}
                 {{ child.name }}
               </a>
