@@ -14,6 +14,11 @@
     "dish-title": "#1d1d1d",
     "menus-nav-back": "#555555",
 
+    "slider-title-color": "#ffffff",
+    "slider-subtitle-color": "#ffffff",
+    "slider-link-color": "#000000",
+    "slider-link-hover-color": "#ffffff",
+
     "back-to-menu-link-color": "#727272",
     "back-to-menu-link-hover-color": "#333333",
     "featured-star-color": "#ffcc00",

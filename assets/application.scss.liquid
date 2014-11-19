@@ -43,6 +43,11 @@ $body-color: {{ theme_settings.body-color }};
 $body-color-second: {{ theme_settings.body-color-second }};
 $accent-color: {{ theme_settings.accent-color }};
 
+$slider-title-color: {{ theme_settings.slider-title-color }};
+$slider-subtitle-color: {{ theme_settings.slider-subtitle-color }};
+$slider-link-color: {{ theme_settings.slider-link-color }};
+$slider-link-hover-color: {{ theme_settings.slider-link-hover-color }};
+
 $back-to-menu-link-color: {{ theme_settings.back-to-menu-link-color }};
 $back-to-menu-link-hover-color: {{ theme_settings.back-to-menu-link-hover-color }};
 $nav-link-color: {{ theme_settings.nav-link-color }};
@@ -773,16 +778,27 @@ a {
   top: 30%;
   width: 100%;
   color: white;
-  h1 {
-    font-family: "Intro Inline";
+}
+.slider-title {
+  font-family: "Intro Inline";
+  color: $slider-title-color;
+}
+.slider-subtitle {
+  font-family: $bodyFontStack;
+  font-size: 100%;
+  font-weight: 700;
+  color: $slider-subtitle-color;
+}
+.slider-button {
+  .slider-link {
+    color: $slider-link-color;
   }
-  h5 {
-    font-family: $bodyFontStack;
-    font-size: 100%;
-    font-weight: 700;
+  &:hover {
+    .slider-link {
+      color: $slider-link-hover-color;
+    }
   }
 }
-
 .menus--featured {
   background-color: $featured-menus-background;
   margin-bottom: 1em;
