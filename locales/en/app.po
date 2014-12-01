@@ -113,3 +113,59 @@ msgstr "Virtual tour"
 msgid "Visiter"
 msgstr "Visit"
 
+msgid "Voir le menu"
+msgstr "See menu"
+
+msgid "Voir le plat"
+msgstr "See dish"
+
+msgid "Valider"
+msgstr "Validate"
+
+msgid "Haut de la page"
+msgstr "Top"
+
+msgid "Notre carte"
+msgstr "Our menu"
+
+msgid "Voir les plats"
+msgstr "See dishes"
+
+msgid "Inscription à la newsletter"
+msgstr "Subscription to the newsletter"
+
+msgid "Entrez votre email pour recevoir notre newsletter&nbsp;:"
+msgstr "Enter your email to receive our newsletter&nbsp;:"
+
+msgid "Vos coordonnées"
+msgstr "Your details"
+
+msgid "Téléphone :"
+msgstr "Phone :"
+
+msgid "Adresse email :"
+msgstr "Email address :"
+
+msgid "Adresse :"
+msgstr "Address :"
+
+msgid "Horaires :"
+msgstr "Opening hours :"
+
+msgid "Votre nom :"
+msgstr "Your name :"
+
+msgid "Votre adresse email :"
+msgstr "Your email address :"
+
+msgid "Votre mail :"
+msgstr "Your mail :"
+
+msgid "Votre numéro de téléphone :"
+msgstr "Your phone number :"
+
+msgid "Votre message :"
+msgstr "Your message :"
+
+msgid "En savoir +"
+msgstr "See more"
