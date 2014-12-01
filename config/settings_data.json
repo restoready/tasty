@@ -41,7 +41,8 @@
     "label-form": "#000",
     "border-form": "#000",
 
-    "button_header_home_text": "Découvrez nos menus",
+    "button_header_home_text_fr": "Découvrez nos menus",
+    "button_header_home_text_en": "Discover our menus",
     "button_header_home_link": "menus",
 
     "google_business_view_url": "",

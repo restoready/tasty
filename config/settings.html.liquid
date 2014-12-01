@@ -221,7 +221,7 @@
             <label for="home-about-background">Image de fond à propos (jpg)</label>
             <input class="icheck-me" name="admin_theme_settings[home-display-about-background]" id="home-display-about-background" type="checkbox" value="{{ theme_settings.home-display-about-background }}" data-skin='black-green' {% if theme_settings.home-display-about-background %}checked{% endif %}/>
             <label for="home-display-about-background">Afficher l'image</label>
-          
+
             <div id="plupload-home-about-background" class="input-file">
               <input name="admin_theme_settings[assets][home-about-background.jpg]" type="file"/>
             </div>
@@ -262,8 +262,10 @@
         <div class="row">
           <label>Bouton haut de page d'accueil</label>
           <div class="columns medium-6">
-            <label for="button_header_home_text">Texte</label>
-            <input type="text" id="button_header_home_text" name="admin_theme_settings[button_header_home_text]" value="{{ theme_settings.button_header_home_text }}">
+            <label for="button_header_home_text_fr">Texte (fr)</label>
+            <input type="text" id="button_header_home_text_fr" name="admin_theme_settings[button_header_home_text_fr]" value="{{ theme_settings.button_header_home_text_fr }}">
+            <label for="button_header_home_text_en">Texte (en)</label>
+            <input type="text" id="button_header_home_text_en" name="admin_theme_settings[button_header_home_text_en]" value="{{ theme_settings.button_header_home_text_en }}">
           </div>
           <div class="columns medium-6">
             <label for="button_header_home_link">Lien</label>

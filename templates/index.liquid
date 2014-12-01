@@ -20,7 +20,7 @@
     </div>
     <div>
       <a href="{{ localized_root_path }}/{{ theme_settings.button_header_home_link }}" class="button button-white slider-button">
-        <span class="slider-link">{{ theme_settings.button_header_home_text | t }}</span>
+        <span class="slider-link">{% if current_locale == 'fr' %}{{ theme_settings.button_header_home_text_fr | t }}{% else %}{{ theme_settings.button_header_home_text_en | t }}{% endif %}</span>
       </a>
     </div>
   </div>
