@@ -41,7 +41,11 @@
           </h1>
           <div class="post-thumbnail">
             <div class="post-thumbnail-wrapper">
-              <img src="{{ menu.main_image | custom_image_url: "295x295#" }}" alt="menu">
+              {% if menu.main_image? %}
+                <img src="{{ menu.main_image | custom_image_url: "295x295#" }}" alt="menu">
+              {% else %}
+                <div class="post-thumbnail-no-image" alt="menu"></div>
+              {% endif %}
               <div class="menu__link-home">
                 {% if menu.parent? %}
                   <a href="{{ menu.root_parent.url }}#menu-{{menu.id}}" class="post-find-more">
@@ -76,7 +80,11 @@
           </h1>
           <div class="post-thumbnail">
             <div class="post-thumbnail-wrapper">
-              <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
+              {% if food.main_image? %}
+                <img src="{{ food.main_image | custom_image_url: "295x295#" }}" alt="menu">
+              {% else %}
+                <div class="post-thumbnail-no-image" alt="menu"></div>
+              {% endif %}
               <div class="menu__link-home">
                 <a href="{% if relative_menu.parent? %}{{ relative_menu.root_parent.url }}#menu-{{relative_menu.id}}{% else %}{{ relative_menu.url }}{% endif %}" class="post-find-more">
                 <span>{{ "En savoir +" | t }}</span>
