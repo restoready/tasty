@@ -150,7 +150,11 @@ $bodyFontStack: {{ theme_settings.body-font }};
   *zoom: 1;
 }
 @mixin clearfix() {
-  @extend .clearfix;
+  &:after {
+    content: "";
+    display: table;
+    clear: both; }
+  *zoom: 1;
 }
 
 @mixin box-shadow($shadow) {
@@ -579,7 +583,7 @@ a {
   clear: both;
 }
 .page {
-  @extend .clearfix;
+  @include clearfix();
 }
 
 .main-header {
@@ -651,7 +655,11 @@ a {
           }
         }
           .social__label {
-            @extend .hide-text;
+            height: 1px;
+            width: 1px;
+            position: absolute;
+            overflow: hidden;
+            top: -10px;
           }
 
         .social__link--phone,
@@ -974,7 +982,7 @@ a {
   }
 }
   .opening-days {
-    @extend .clearfix;
+    @include clearfix();
     margin-bottom: 1em;
   }
     .opening-day {
@@ -1019,7 +1027,8 @@ a {
     }
   }
     .map__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
     .map__image,
     .map iframe {
@@ -1040,7 +1049,8 @@ a {
     margin-bottom: 1em;
   }
     .menu__image {
-      @extend .auto;
+      max-width: 100%;
+      height: auto;
     }
     .menu__title {
       color: #333333;
@@ -1307,7 +1317,8 @@ a {
   }
     .gallery__img {
       img {
-        @extend .auto;
+        max-width: 100%;
+        height: auto;
       }
     }
     .photo__caption {
