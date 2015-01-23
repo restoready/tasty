@@ -129,7 +129,7 @@
   <header class="section__header">
     <h2 class="section__title">{{ "Horaires" | t }}</h2>
   </header>
-  <main>
+  <div>
     <dl>
       {% for day in opening_hours %}
         <dt>
@@ -145,11 +145,11 @@
         <p>{{ restaurant.opening_hours_information }}</p>
       </div>
     {% endif %}
-  </main>
+  </div>
 </section>
 
 <section class="directions">
-  <main class="section__main">
+  <div class="section__main">
     <div class="map contact_map">
       {% if theme_settings.google_map_type == "embed" %}
         {% google_map_embed: "size:100%x380" %}
@@ -186,7 +186,7 @@
         </a>
       </footer>
     </div>
-  </main>
+  </div>
   <script>
     jQuery(".btn-see-location").click(function (e) {
       e.preventDefault();

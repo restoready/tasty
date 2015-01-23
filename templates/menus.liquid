@@ -13,7 +13,7 @@
           </a>
         </div>
       </header>
-      <main class="section__main">
+      <div class="section__main">
         <ol class="menus__children">
           {% for child in menu.children %}
             <li class="menus__child {% if menu.children.size == 1 %}submenu-full-width{% endif %}{% if menu.children.size == 2 %}submenu-half-width{% endif %}">
@@ -37,7 +37,7 @@
             </li>
           {% endfor %}
         </ol>
-      </main>
+      </div>
     {% endfor %}
   </div>
 </section>

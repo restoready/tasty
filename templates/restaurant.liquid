@@ -13,9 +13,9 @@
 {% if restaurant.summary? %}
   <section class="page-header page-header--restaurant">
     <div class="wrapper">
-      <main class="section__main page-header__description">
+      <div class="section__main page-header__description">
         {{ restaurant.summary }}
-      </main>
+      </div>
     </div>
   </section>
 {% endif %}
@@ -23,11 +23,11 @@
 {% if photos.size > 0 %}
   <section class="restaurant-gallery">
     <div class="wrapper">
-      <main class="section__main gallery">
+      <div class="section__main gallery">
         {% for photo in photos %}
           {% include 'photo' with photo:photo, i:forloop.index, l:forloop.length %}
         {% endfor %}
-      </main>
+      </div>
     </div>
   </section>
 {% endif %}
