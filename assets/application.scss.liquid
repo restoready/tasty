@@ -590,7 +590,7 @@ a {
 .main-header {
 }
   .logo {
-    margin: 1em 1em;
+    margin: 1em 1em 0 1em;
     display: inline-block;
     vertical-align: middle;
   }
@@ -603,6 +603,27 @@ a {
         display: block;
       }
     }
+
+  .local-choice {
+    text-align: center;
+  }
+  .local-choice-item {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-decoration: none;
+    .local-choice-code {
+      color: $body-color;
+      .local-separator {
+        margin: 0 .25em;
+        color: $body-color;
+      }
+    }
+  }
+  .local-choice-item--current {
+    .local-choice-code {
+      color: $accent-color;
+    }
+  }
 
 .main-nav {
   @include clearfix();
@@ -1814,6 +1835,9 @@ x:-o-prefocus, .lb-overlay img {
   select {
     font-size: 112.5%;
   }
+  .local-choice-item {
+    font-size: 1.75em;
+  }
   .button {
     width: 350px;
   }
@@ -1855,7 +1879,15 @@ x:-o-prefocus, .lb-overlay img {
   select {
     font-size: 125%;
   }
-
+  .local-choice {
+    margin-bottom: .5em;
+    text-align: right;
+  }
+  .local-choice-item {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+  }
   .main-nav__item {
     position: relative;
   }
