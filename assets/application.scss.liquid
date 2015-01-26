@@ -700,7 +700,26 @@ a {
   .select-nav {
     border: 2px solid black;
   }
+  .footer__local-choice {
+    display: inline-block;
+  }
 
+
+  .footer__local-choice {
+    text-decoration: none;
+    .local-choice-code {
+      color: $body-color;
+      .local-separator {
+        margin: 0 .25em;
+        color: $body-color;
+      }
+    }
+  }
+  .local-choice-item--current {
+    .local-choice-name {
+      color: $accent-color;
+    }
+  }
 
 // Forms
 .field-group {
