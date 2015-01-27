@@ -20,7 +20,22 @@
       <header class="main-header">
         <nav class="main-nav" role="navigation">
         {% include 'nav' %}
-      </nav>
+        </nav>
+        {% if localized_page_paths.size > 0 %}
+          <div class="local-choice wrapper">
+            {% for path in localized_page_paths %}
+              {% if path.current? %}
+                <strong class="local-choice-item local-choice-item--current">
+                  <span class="local-choice-code">{% if forloop.last %}{{ path.locale_code }}{% else %}{{ path.locale_code }}<span class="local-separator">|</span>{% endif%}</span>
+                </strong>
+              {% else %}
+                <a href="{{ path.url }}" class="local-choice-item">
+                  <span class="local-choice-code">{% if forloop.last %}{{ path.locale_code }}{% else %}{{ path.locale_code }}<span class="local-separator">|</span>{% endif%}</span>
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
       </header>
       <main class="main-content" role="main">
         {{ content_for_layout }}
