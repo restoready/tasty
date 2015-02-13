@@ -45,8 +45,10 @@
       </footer>
     </section>
     {{ 'jquery.bxslider.min.js' | asset_url | javascript_tag }}
+    {{ 'venobox.min.js' | javascript_tag }}
     <script>
       $(document).ready(function(){
+        $('.venobox').venobox();
         $('.bxslider').bxSlider({
           pager: false,
           auto: true,
