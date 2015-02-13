@@ -24,6 +24,7 @@
     "featured-star-color": "#ffcc00",
     "price-label-color": "#999999",
     "price-value-color": "#333333",
+
     "label-vegetarian-background": "#ABD824",
     "label-vegetarian-color": "#ffffff",
     "label-new-background": "#ffa42e",
@@ -32,6 +33,13 @@
     "label-no-pork-color": "#ffffff",
     "label-no-meat-background": "#DACD13",
     "label-no-meat-color": "#ffffff",
+
+    "label-alcohol-free-background": "#27b6f2",
+    "label-alcohol-free-color": "#ffffff",
+
+    "label-daily-food-background": "#AAAAAA",
+    "label-daily-food-color": "#ffffff",
+
     "featured-menus-background": "#ffffff",
     "featured-menus-title-color": "#000000",
     "featured-menus-border-color": "#747474",
