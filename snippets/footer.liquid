@@ -89,6 +89,13 @@
               </a>
             </li>
           {% endif %}
+          {% if restaurant.google_plus_url? %}
+            <li class="social__item">
+              <a class="social__link icon icon-google" href="{{restaurant.google_plus_url}}">
+                <span class="social__label">{{ "Notre page Google+" | t }}</span>
+              </a>
+            </li>
+          {% endif %}
           {% if restaurant.tripadvisor_url? %}
             <li class="social__item">
               <a class="social__link icon icon-tripadvisor" href="{{restaurant.tripadvisor_url}}">
