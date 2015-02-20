@@ -72,6 +72,8 @@
     "display_google_business_view_embed": false,
     "google_map_type": "image",
     "footer_display_newsletter": true,
+    "home_display_news": false,
+    "restaurant_display_news": true,
     "display_contact_form": true,
     "home-display-about-background": false
   },
@@ -139,6 +141,8 @@
       "display_google_business_view_embed": false,
       "google_map_type": "image",
       "footer_display_newsletter": true,
+      "home_display_news": false,
+      "restaurant_display_news": true,
       "display_contact_form": true,
       "home-display-about-background": false
     }
