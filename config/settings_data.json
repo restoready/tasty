@@ -49,6 +49,19 @@
     "label-form": "#000",
     "border-form": "#000",
 
+    "tags":{
+        "vegan-background": "#8a9e6c",
+        "vegan-color": "#ffffff",
+        "new-background": "#d8c061",
+        "new-color": "#ffffff",
+        "no-pork-background": "#73ABE1",
+        "no-pork-color": "#ffffff",
+        "no-meat-background": "#DACD13",
+        "no-meat-color": "#ffffff",
+        "alcohol-free-background": "#48caf2",
+        "alcohol-free-color": "#ffffff"
+    },
+
     "button_header_home_text_fr": "Découvrez nos menus",
     "button_header_home_text_en": "Discover our menus",
     "button_header_home_link": "menus",
@@ -103,6 +116,19 @@
 
       "label-form": "#000",
       "border-form": "#000",
+
+      "tags":{
+        "vegan-background": "#8a9e6c",
+        "vegan-color": "#ffffff",
+        "new-background": "#d8c061",
+        "new-color": "#ffffff",
+        "no-pork-background": "#73ABE1",
+        "no-pork-color": "#ffffff",
+        "no-meat-background": "#DACD13",
+        "no-meat-color": "#ffffff",
+        "alcohol-free-background": "#48caf2",
+        "alcohol-free-color": "#ffffff"
+    },
 
       "button_header_home_text": "Découvrez nos menus",
       "button_header_home_link": "menus",

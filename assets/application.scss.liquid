@@ -64,22 +64,6 @@ $separator-color: #f0f0f0;
 $price-label-color: {{ theme_settings.price-label-color }};
 $price-value-color: {{ theme_settings.price-value-color }};
 
-// Tags
-$label-vegetarian-background: {{ theme_settings.label-vegetarian-background }};
-$label-vegetarian-color: {{ theme_settings.label-vegetarian-color }};
-$label-new-background: {{ theme_settings.label-new-background }};
-$label-new-color: {{ theme_settings.label-new-color }};
-$label-no-pork-background: {{ theme_settings.label-no-pork-background }};
-$label-no-pork-color: {{ theme_settings.label-no-pork-color }};
-$label-no-meat-background: {{ theme_settings.label-no-meat-background }};
-$label-no-meat-color: {{ theme_settings.label-no-meat-color }};
-
-$label-alcohol-free-background: {{ theme_settings.label-alcohol-free-background }};
-$label-alcohol-free-color: {{ theme_settings.label-alcohol-free-color }};
-
-$label-daily-food-background: {{ theme_settings.label-daily-food-background }};
-$label-daily-food-color: {{ theme_settings.label-daily-food-color }};
-
 // Featured menus
 $featured-menus-background:   {{ theme_settings.featured-menus-background }};
 $featured-menus-title-color:  {{ theme_settings.featured-menus-title-color }};
@@ -1307,30 +1291,16 @@ a {
     background-color: $accent-color;
     color: #FFFFFF;
   }
-    .tag--vegan, .tag--vegetarian {
-      background-color: $label-vegetarian-background;
-      color: $label-vegetarian-color;
+  {% for tag in tags %}
+    .tag--{{tag.css_class}} {
+      {% if tag.background_value != "" %}
+        background-color: {{ tag.background_value }};
+      {% endif %}
+      {% if tag.color_value != "" %}
+        color: {{ tag.color_value }};
+      {% endif %}
     }
-    .tag--new {
-      background-color: $label-new-background;
-      color: $label-new-color;
-    }
-    .tag--no-pork {
-      background-color: $label-no-pork-background;
-      color: $label-no-pork-color;
-    }
-    .tag--no-meat {
-      background-color: $label-no-meat-background;
-      color: $label-no-meat-color;
-    }
-    .tag--daily-food {
-      background-color: $label-daily-food-background;
-      color: $label-daily-food-color;
-    }
-    .tag--alcohol-free {
-      background-color: $label-alcohol-free-background;
-      color: $label-alcohol-free-color;
-    }
+  {% endfor %}
 
 // Gallery
 
