@@ -1,0 +1,171 @@
+# RestoReady
+# Theme : lemenhir
+# Copyright (C) 2013
+# This file is distributed under the same license as the RestoReady package.
+# Pierre-Emmanuel Fringant <pierre.fringant@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-06 10:55+0200\n"
+"PO-Revision-Date: 2013-08-06 11:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: Pierre-Emmanuel Fringant <pierre.fringant@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"Language: nb\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "Tél. : "
+msgstr ""
+
+msgid "Accueil"
+msgstr ""
+
+msgid "Le restaurant"
+msgstr ""
+
+msgid "Voir toute la carte"
+msgstr ""
+
+msgid "Nos suggestions"
+msgstr ""
+
+msgid "Horaires"
+msgstr ""
+
+msgid "Fermé"
+msgstr ""
+
+msgid "Localisation"
+msgstr ""
+
+msgid "Voir l'itinéraire"
+msgstr ""
+
+msgid "Retour au menu"
+msgstr ""
+
+msgid "Recommandé par le chef"
+msgstr ""
+
+msgid "Cette semaine"
+msgstr ""
+
+msgid "Plats de la semaine"
+msgstr ""
+
+msgid "Une erreur s'est produite lors de votre abonnement."
+msgstr ""
+
+msgid "Votre inscription à la newsletter a bien été enregistrée."
+msgstr ""
+
+msgid "Abonnez-vous à notre newsletter pour recevoir les dernières nouveautés du restaurant."
+msgstr ""
+
+msgid "Abonnement Newsletter"
+msgstr ""
+
+msgid "S'abonner"
+msgstr ""
+
+msgid "Mentions légales |"
+msgstr ""
+
+msgid "Suivez-nous"
+msgstr ""
+
+msgid "Nouveaux plats"
+msgstr ""
+
+msgid "Venez découvrir nos derniers plats."
+msgstr ""
+
+msgid "Les incontournables"
+msgstr ""
+
+msgid "Haut de page"
+msgstr ""
+
+msgid "Nom"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Téléphone"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Envoyer"
+msgstr ""
+
+msgid "Visite virtuelle"
+msgstr ""
+
+msgid "Visiter"
+msgstr ""
+
+msgid "Voir le menu"
+msgstr ""
+
+msgid "Voir le plat"
+msgstr ""
+
+msgid "Valider"
+msgstr ""
+
+msgid "Haut de la page"
+msgstr ""
+
+msgid "Notre carte"
+msgstr ""
+
+msgid "Voir les plats"
+msgstr ""
+
+msgid "Inscription à la newsletter"
+msgstr ""
+
+msgid "Entrez votre email pour recevoir notre newsletter&nbsp;:"
+msgstr ""
+
+msgid "Vos coordonnées"
+msgstr ""
+
+msgid "Téléphone :"
+msgstr ""
+
+msgid "Adresse email :"
+msgstr ""
+
+msgid "Adresse :"
+msgstr ""
+
+msgid "Horaires :"
+msgstr ""
+
+msgid "Votre nom :"
+msgstr ""
+
+msgid "Votre adresse email :"
+msgstr ""
+
+msgid "Votre mail :"
+msgstr ""
+
+msgid "Votre numéro de téléphone :"
+msgstr ""
+
+msgid "Votre message :"
+msgstr ""
+
+msgid "En savoir +"
+msgstr ""
